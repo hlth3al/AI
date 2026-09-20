@@ -39,23 +39,37 @@
             background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
         }
 
-        header { text-align: center; margin-bottom: 30px; }
+        header { text-align: center; margin-bottom: 25px; }
 
         .company-name {
             color: var(--accent-gold);
-            font-size: 1.15rem; font-weight: bold; letter-spacing: 1px;
+            font-size: 1.2rem; font-weight: bold; letter-spacing: 1px;
             margin-bottom: 10px; display: block;
         }
 
         h1 {
-            font-size: 1.7rem; color: #fff; line-height: 1.6; margin-bottom: 15px;
+            font-size: 1.65rem; color: #fff; line-height: 1.6; margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .promo-badge {
             background: linear-gradient(45deg, #b8860b, #d4af37);
             color: #000; padding: 6px 22px; border-radius: 50px;
-            font-weight: 900; font-size: 0.85rem; display: inline-block; margin-bottom: 20px;
+            font-weight: 900; font-size: 0.85rem; display: inline-block; margin-bottom: 18px;
+        }
+
+        /* مالکیت حقوقی پلتفرم در اوایل پنل */
+        .ownership-banner {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 12px 18px;
+            margin-bottom: 22px;
+            text-align: center;
+            color: var(--accent-gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
         }
 
         .hero-box {
@@ -91,7 +105,6 @@
             transform: translateY(-2px);
         }
 
-        /* کادر ویدیو و دکمه اتصال */
         #videoPlayerContainer {
             display: none;
             margin-top: 25px;
@@ -167,7 +180,7 @@
             display: block;
         }
 
-        /* پنل اصلی فرماندهی که با کلیک روی اتصال باز می‌شود */
+        /* بخش کنسول متصل شده هوش مصنوعی */
         #activeConsoleArea {
             display: none;
             margin-top: 25px;
@@ -196,9 +209,6 @@
             color: #fff;
             font-size: 1.2rem;
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .status-grid {
@@ -256,11 +266,11 @@
             background: #050b14;
             border: 1px solid #1e293b;
             border-radius: 10px;
-            padding: 12px 15px;
-            font-size: 0.85rem;
+            padding: 14px 16px;
+            font-size: 0.88rem;
             color: #38bdf8;
-            min-height: 50px;
-            line-height: 1.6;
+            min-height: 60px;
+            line-height: 1.7;
         }
 
         .features-row {
@@ -275,11 +285,6 @@
 
         .feature-item h4 { color: var(--accent-gold); margin-bottom: 10px; }
         .feature-item p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; }
-
-        footer {
-            text-align: center; margin-top: 40px; padding-top: 20px;
-            border-top: 1px solid #30363d; color: #64748b; font-size: 0.8rem;
-        }
     </style>
 </head>
 <body>
@@ -291,10 +296,15 @@
         <h1>درگاه امتیاز سرمایه گذاری پر بازده پنلها، داشبوردها و پلتفرمهای هوش مصنوعی</h1>
     </header>
 
+    <!-- جمله ویرایش‌شده مالکیت حقوقی در اوایل پنل طبق دستور -->
+    <div class="ownership-banner">
+        تمامی حقوق این پلتفرم متعلق به شرکت صنایع پردرآمد تهرانیها با مدیر عاملی حسین لعلیان (رتبه ۳۲ دکتری)می‌باشد.
+    </div>
+
     <div class="hero-box">
         <p>
             این پلتفرم، ویترین رسمی و نسخه ارزیابی (Demo) جهت واگذاری امتیاز بهره‌برداری از هوش مصنوعی پیشرفته است. 
-            <strong>شرکت صنایع پردرآمد تهرانیها</strong> با مدیریت <strong>حسین لعلیان</strong>، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند. نسخه نهایی با تمامی امکانات و اتصال به سورس‌های اختصاصی، پس از عقد قرارداد تحویل می‌گردد.
+            <strong>شرکت صنایع پردرآمد تهرانیها</strong> با مدیریت <strong>حسین لعلیان</strong>، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند. نسخه نهایی با تمامی امکانات، پس از عقد قرارداد تحویل می‌گردد.
         </p>
     </div>
 
@@ -320,7 +330,7 @@
             </video>
         </div>
 
-        <!-- پنل اصلی فرماندهی عملیات که با اتصال باز می‌شود -->
+        <!-- پنل جامع فرماندهی عملیات متصل‌شده -->
         <div id="activeConsoleArea">
             <span class="console-badge">● آنلاین و متصل</span>
             <div class="console-title">🛰️ درگاه جامع فرماندهی عملیات هوش مصنوعی حسین لعلیان</div>
@@ -333,7 +343,7 @@
                 </div>
                 <div class="status-box">
                     <small>مدیریت درگاه</small>
-                    <strong style="color: var(--accent-gold);">حسین لعلیان</strong>
+                    <strong style="color: var(--accent-gold);">حسین لعلیان (رتبه ۳۲ دکتری)</strong>
                 </div>
                 <div class="status-box">
                     <small>سطح دسترسی</small>
@@ -341,13 +351,13 @@
                 </div>
             </div>
 
-            <!-- کادر ارسال فرمان به پنل هوش مصنوعی -->
+            <!-- ارسال فرمان هوش مصنوعی -->
             <div class="terminal-input-box">
                 <input type="text" id="cmdInput" placeholder="دستور یا درخواست عملیاتی هوش مصنوعی را اینجا بنویسید..." value="آنالیز فرصت سرمایه‌گذاری و اتصال به موتور هوش مصنوعی" />
                 <button class="btn-exec" onclick="executeCommand()">ارسال فرمان</button>
             </div>
             <div class="terminal-output" id="termOutput">
-                > سیستم آماده دریافت دستور عملیاتی می‌باشد.
+                > [OK] اتصال امن با هسته درگاه فرماندهی حسین لعلیان برقرار شد.<br>> موتور پردازش عملیاتی در حالت آماده‌باش قرار دارد.
             </div>
         </div>
     </div>
@@ -362,10 +372,6 @@
             <p>شما مالک برند و پنل اختصاصی خود خواهید بود؛ با پشتیبانی فنی مستقیم شرکت صنایع پردرآمد تهرانیها.</p>
         </div>
     </div>
-
-    <footer>
-        تمامی حقوق این داشبورد متعلق به شرکت صنایع پردرآمد تهرانیها و شخص حسین لعلیان می‌باشد.
-    </footer>
 </div>
 
 <script>
@@ -378,7 +384,7 @@
     function playDemoClip() {
         container.style.display = 'block';
         video.play().catch(e => {
-            console.log("پخش خودکار نیاز به لمس دکمه پلی دارد", e);
+            console.log("پخش خودکار نیازمند تعامل لمسی است", e);
         });
         container.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -389,19 +395,17 @@
         container.style.display = 'none';
     }
 
-    // باز شدن و اتصال واقعی به کنسول هوش مصنوعی
     function connectToCommandCenter() {
-        video.pause(); // قطع صدا و ویدیو هنگام اتصال به پنل
+        video.pause();
         consoleArea.style.display = 'block';
         termOutput.innerHTML = `> [OK] اتصال امن با هسته درگاه فرماندهی حسین لعلیان برقرار شد.<br>> موتور پردازش عملیاتی در حالت آماده‌باش قرار دارد.`;
         consoleArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // اجرای دستور در پنل
     function executeCommand() {
         const text = cmdInput.value.trim();
         if(!text) return;
-        termOutput.innerHTML = `> در حال پردازش فرمان: "${text}" ...<br>> [پاسخ سامانه]: عملیات با موفقیت در بستر پلتفرم هوش مصنوعی شرکت صنایع پردرآمد تهرانیها ثبت شد.`;
+        termOutput.innerHTML = `> در حال پردازش فرمان: "${text}" ...<br>> [پاسخ هوش مصنوعی]: عملیات با موفقیت در بستر پلتفرم صنایع پردرآمد تهرانیها آنالیز و تایید شد. بازدهی و الگوریتم‌های اجرایی در بهینه‌ترین وضعیت قرار دارند.`;
     }
 </script>
 
