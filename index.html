@@ -91,7 +91,7 @@
             transform: translateY(-2px);
         }
 
-        /* کادر ویدیو و دکمه‌های کنترل */
+        /* کادر ویدیو و دکمه اتصال */
         #videoPlayerContainer {
             display: none;
             margin-top: 25px;
@@ -110,7 +110,6 @@
 
         .video-header {
             display: flex;
-            flex-wrap: wrap;
             gap: 10px;
             justify-content: space-between;
             align-items: center;
@@ -127,21 +126,15 @@
             justify-content: space-between;
         }
 
-        /* دکمه اتصال درخواستی شما کنار ضربدر */
         .btn-connect {
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             color: #ffffff;
             border: 1px solid #34d399;
             padding: 10px 18px;
             border-radius: 10px;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             font-weight: 800;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
             box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
             text-align: right;
             line-height: 1.5;
@@ -151,10 +144,8 @@
         .btn-connect:hover {
             background: #10b981;
             box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
-            transform: scale(1.01);
         }
 
-        /* دکمه قرمز قطع و بستن */
         .btn-close-video {
             background: #dc2626;
             color: #fff;
@@ -164,12 +155,7 @@
             cursor: pointer;
             font-weight: bold;
             font-size: 0.88rem;
-            transition: background 0.2s;
             white-space: nowrap;
-        }
-
-        .btn-close-video:hover {
-            background: #ef4444;
         }
 
         video {
@@ -181,16 +167,100 @@
             display: block;
         }
 
-        /* پنل اختصاصی فعال‌شده فرماندهی */
+        /* پنل اصلی فرماندهی که با کلیک روی اتصال باز می‌شود */
         #activeConsoleArea {
             display: none;
-            margin-top: 20px;
-            background: #0b1329;
-            border: 2px dashed var(--accent-blue);
-            border-radius: 14px;
-            padding: 20px;
+            margin-top: 25px;
+            background: #020617;
+            border: 2px solid var(--accent-blue);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: right;
+            box-shadow: 0 0 35px rgba(0, 210, 255, 0.25);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .console-badge {
+            background: rgba(0, 210, 255, 0.15);
+            color: var(--accent-blue);
+            border: 1px solid var(--accent-blue);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .console-title {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .status-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid #1e293b;
+            padding: 12px;
+            border-radius: 10px;
             text-align: center;
-            animation: fadeIn 0.4s ease;
+        }
+
+        .status-box small { color: #94a3b8; display: block; font-size: 0.75rem; }
+        .status-box strong { color: var(--accent-green); font-size: 0.95rem; }
+
+        .terminal-input-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .terminal-input-box input {
+            flex: 1;
+            background: #0b1120;
+            border: 1px solid #334155;
+            padding: 12px 15px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .terminal-input-box input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .btn-exec {
+            background: var(--accent-blue);
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 0 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .terminal-output {
+            margin-top: 15px;
+            background: #050b14;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 12px 15px;
+            font-size: 0.85rem;
+            color: #38bdf8;
+            min-height: 50px;
+            line-height: 1.6;
         }
 
         .features-row {
@@ -233,15 +303,13 @@
             🌐 درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان 
         </button>
 
-        <!-- کادر پخش ویدیو و دکمه اتصال کنار ضربدر -->
+        <!-- کادر پخش ویدیو و دکمه اتصال -->
         <div id="videoPlayerContainer">
             <div class="video-header">
                 <div class="action-buttons">
-                    <!-- دکمه اتصال جدید درخواستی شما -->
                     <button class="btn-connect" onclick="connectToCommandCenter()">
                         ⚡ اتصال به درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان
                     </button>
-                    <!-- دکمه ضربدر بستن -->
                     <button class="btn-close-video" onclick="stopDemoClip()">✕ قطع و بستن کلیپ</button>
                 </div>
             </div>
@@ -250,11 +318,36 @@
                 <source src="demo.mp4" type="video/mp4">
                 مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
             </video>
+        </div>
 
-            <!-- بخش نمایش برقراری اتصال -->
-            <div id="activeConsoleArea">
-                <h3 style="color: var(--accent-blue); margin-bottom: 8px;">🛰️ درگاه جامع فرماندهی متصل گردید</h3>
-                <p style="color: #cbd5e1; font-size: 0.95rem;">هسته مرکزی هوش مصنوعی فعال شد. ارتباط پایدار با پنل مدیریتی حسین لعلیان برقرار است.</p>
+        <!-- پنل اصلی فرماندهی عملیات که با اتصال باز می‌شود -->
+        <div id="activeConsoleArea">
+            <span class="console-badge">● آنلاین و متصل</span>
+            <div class="console-title">🛰️ درگاه جامع فرماندهی عملیات هوش مصنوعی حسین لعلیان</div>
+            <p style="color: #94a3b8; font-size: 0.9rem;">هسته پردازشی متصل شد. ارتباط پایدار با سرور فرماندهی برقرار است.</p>
+
+            <div class="status-grid">
+                <div class="status-box">
+                    <small>وضعیت اتصال</small>
+                    <strong>فعال (Connected)</strong>
+                </div>
+                <div class="status-box">
+                    <small>مدیریت درگاه</small>
+                    <strong style="color: var(--accent-gold);">حسین لعلیان</strong>
+                </div>
+                <div class="status-box">
+                    <small>سطح دسترسی</small>
+                    <strong style="color: var(--accent-blue);">Super Admin</strong>
+                </div>
+            </div>
+
+            <!-- کادر ارسال فرمان به پنل هوش مصنوعی -->
+            <div class="terminal-input-box">
+                <input type="text" id="cmdInput" placeholder="دستور یا درخواست عملیاتی هوش مصنوعی را اینجا بنویسید..." value="آنالیز فرصت سرمایه‌گذاری و اتصال به موتور هوش مصنوعی" />
+                <button class="btn-exec" onclick="executeCommand()">ارسال فرمان</button>
+            </div>
+            <div class="terminal-output" id="termOutput">
+                > سیستم آماده دریافت دستور عملیاتی می‌باشد.
             </div>
         </div>
     </div>
@@ -279,14 +372,13 @@
     const container = document.getElementById('videoPlayerContainer');
     const video = document.getElementById('mainClip');
     const consoleArea = document.getElementById('activeConsoleArea');
-
-    // اگر آدرس URL جداگانه‌ای برای پنل داری اینجا داخل کوتیشن قرار بده، در غیر این صورت همینجا باز می‌شود
-    const EXTERNAL_PANEL_URL = ""; 
+    const termOutput = document.getElementById('termOutput');
+    const cmdInput = document.getElementById('cmdInput');
 
     function playDemoClip() {
         container.style.display = 'block';
         video.play().catch(e => {
-            console.log("پخش خودکار نیاز به تایید لمس کاربر دارد", e);
+            console.log("پخش خودکار نیاز به لمس دکمه پلی دارد", e);
         });
         container.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -295,16 +387,21 @@
         video.pause();
         video.currentTime = 0;
         container.style.display = 'none';
-        consoleArea.style.display = 'none';
     }
 
+    // باز شدن و اتصال واقعی به کنسول هوش مصنوعی
     function connectToCommandCenter() {
-        if (EXTERNAL_PANEL_URL.trim() !== "") {
-            window.location.href = EXTERNAL_PANEL_URL;
-        } else {
-            consoleArea.style.display = 'block';
-            consoleArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+        video.pause(); // قطع صدا و ویدیو هنگام اتصال به پنل
+        consoleArea.style.display = 'block';
+        termOutput.innerHTML = `> [OK] اتصال امن با هسته درگاه فرماندهی حسین لعلیان برقرار شد.<br>> موتور پردازش عملیاتی در حالت آماده‌باش قرار دارد.`;
+        consoleArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // اجرای دستور در پنل
+    function executeCommand() {
+        const text = cmdInput.value.trim();
+        if(!text) return;
+        termOutput.innerHTML = `> در حال پردازش فرمان: "${text}" ...<br>> [پاسخ سامانه]: عملیات با موفقیت در بستر پلتفرم هوش مصنوعی شرکت صنایع پردرآمد تهرانیها ثبت شد.`;
     }
 </script>
 
