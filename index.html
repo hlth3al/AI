@@ -8,11 +8,11 @@
     <style>
         :root {
             --bg-color: #0a0e14;
-            --card-bg: rgba(17, 25, 39, 0.9);
+            --card-bg: rgba(17, 25, 39, 0.95);
             --accent-gold: #d4af37;
             --accent-blue: #00d2ff;
+            --accent-green: #10b981;
             --text-main: #e5e7eb;
-            --border-glow: rgba(212, 175, 55, 0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
@@ -29,7 +29,7 @@
             max-width: 950px; width: 100%;
             background: var(--card-bg);
             border: 1px solid #30363d;
-            border-radius: 24px; padding: 40px;
+            border-radius: 24px; padding: 35px;
             box-shadow: 0 0 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(212, 175, 55, 0.05);
             position: relative; overflow: hidden;
         }
@@ -39,66 +39,66 @@
             background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
         }
 
-        header { text-align: center; margin-bottom: 35px; }
+        header { text-align: center; margin-bottom: 30px; }
 
         .company-name {
             color: var(--accent-gold);
-            font-size: 1.1rem; font-weight: bold; letter-spacing: 1px;
+            font-size: 1.15rem; font-weight: bold; letter-spacing: 1px;
             margin-bottom: 10px; display: block;
         }
 
         h1 {
-            font-size: 1.8rem; color: #fff; line-height: 1.6; margin-bottom: 15px;
+            font-size: 1.7rem; color: #fff; line-height: 1.6; margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         .promo-badge {
             background: linear-gradient(45deg, #b8860b, #d4af37);
-            color: #000; padding: 5px 20px; border-radius: 50px;
+            color: #000; padding: 6px 22px; border-radius: 50px;
             font-weight: 900; font-size: 0.85rem; display: inline-block; margin-bottom: 20px;
         }
 
         .hero-box {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 25px; border-radius: 15px; margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 22px; border-radius: 15px; margin-bottom: 30px;
             text-align: justify; line-height: 1.9;
         }
 
-        .hero-box p { color: #cbd5e1; font-size: 1rem; }
+        .hero-box p { color: #cbd5e1; font-size: 0.98rem; }
 
         .command-container {
-            text-align: center; padding: 30px;
+            text-align: center; padding: 25px;
             background: rgba(0, 210, 255, 0.05);
             border-radius: 20px; border: 1px solid rgba(0, 210, 255, 0.2);
-            margin: 40px 0;
+            margin: 30px 0;
         }
 
         .btn-master {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: var(--accent-blue);
             border: 2px solid var(--accent-blue);
-            padding: 20px 30px; font-size: 1.05rem; font-weight: bold;
-            border-radius: 15px; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 18px 25px; font-size: 1.05rem; font-weight: bold;
+            border-radius: 14px; cursor: pointer; transition: all 0.3s ease;
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            display: inline-flex; align-items: center; justify-content: center; gap: 15px; line-height: 1.6;
-            width: 100%; max-width: 750px;
+            display: inline-flex; align-items: center; justify-content: center; line-height: 1.6;
+            width: 100%; max-width: 760px;
         }
 
         .btn-master:hover {
             background: var(--accent-blue); color: #000;
             box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
-            transform: scale(1.02);
+            transform: translateY(-2px);
         }
 
-        /* پخش‌کننده ویدیو درون پنل */
+        /* کادر ویدیو و دکمه‌های کنترل */
         #videoPlayerContainer {
             display: none;
             margin-top: 25px;
-            background: #020617;
+            background: #030712;
             border: 2px solid var(--accent-gold);
             border-radius: 16px;
-            padding: 15px;
+            padding: 16px;
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
             animation: fadeIn 0.4s ease;
         }
@@ -110,29 +110,62 @@
 
         .video-header {
             display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        .video-title {
-            color: var(--accent-gold);
-            font-size: 0.95rem;
-            font-weight: bold;
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
         }
 
+        /* دکمه اتصال درخواستی شما کنار ضربدر */
+        .btn-connect {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: #ffffff;
+            border: 1px solid #34d399;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-weight: 800;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+            text-align: right;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .btn-connect:hover {
+            background: #10b981;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+            transform: scale(1.01);
+        }
+
+        /* دکمه قرمز قطع و بستن */
         .btn-close-video {
             background: #dc2626;
             color: #fff;
             border: none;
-            padding: 6px 16px;
-            border-radius: 8px;
+            padding: 10px 18px;
+            border-radius: 10px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             transition: background 0.2s;
+            white-space: nowrap;
         }
 
         .btn-close-video:hover {
@@ -145,6 +178,19 @@
             border-radius: 10px;
             background: #000;
             outline: none;
+            display: block;
+        }
+
+        /* پنل اختصاصی فعال‌شده فرماندهی */
+        #activeConsoleArea {
+            display: none;
+            margin-top: 20px;
+            background: #0b1329;
+            border: 2px dashed var(--accent-blue);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
         }
 
         .features-row {
@@ -187,16 +233,29 @@
             🌐 درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان 
         </button>
 
-        <!-- کادر پخش ویدیو و دکمه قطع -->
+        <!-- کادر پخش ویدیو و دکمه اتصال کنار ضربدر -->
         <div id="videoPlayerContainer">
             <div class="video-header">
-                <span class="video-title">🎥 پخش زنده معرفی پلتفرم جامع هوش مصنوعی حسین لعلیان</span>
-                <button class="btn-close-video" onclick="stopDemoClip()">✕ قطع و بستن کلیپ</button>
+                <div class="action-buttons">
+                    <!-- دکمه اتصال جدید درخواستی شما -->
+                    <button class="btn-connect" onclick="connectToCommandCenter()">
+                        ⚡ اتصال به درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان
+                    </button>
+                    <!-- دکمه ضربدر بستن -->
+                    <button class="btn-close-video" onclick="stopDemoClip()">✕ قطع و بستن کلیپ</button>
+                </div>
             </div>
+
             <video id="mainClip" controls playsinline preload="auto">
                 <source src="demo.mp4" type="video/mp4">
                 مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
             </video>
+
+            <!-- بخش نمایش برقراری اتصال -->
+            <div id="activeConsoleArea">
+                <h3 style="color: var(--accent-blue); margin-bottom: 8px;">🛰️ درگاه جامع فرماندهی متصل گردید</h3>
+                <p style="color: #cbd5e1; font-size: 0.95rem;">هسته مرکزی هوش مصنوعی فعال شد. ارتباط پایدار با پنل مدیریتی حسین لعلیان برقرار است.</p>
+            </div>
         </div>
     </div>
 
@@ -219,11 +278,15 @@
 <script>
     const container = document.getElementById('videoPlayerContainer');
     const video = document.getElementById('mainClip');
+    const consoleArea = document.getElementById('activeConsoleArea');
+
+    // اگر آدرس URL جداگانه‌ای برای پنل داری اینجا داخل کوتیشن قرار بده، در غیر این صورت همینجا باز می‌شود
+    const EXTERNAL_PANEL_URL = ""; 
 
     function playDemoClip() {
         container.style.display = 'block';
         video.play().catch(e => {
-            console.log("مرورگر برای پخش نیاز به لمس دکمه پلی دارد", e);
+            console.log("پخش خودکار نیاز به تایید لمس کاربر دارد", e);
         });
         container.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -232,6 +295,16 @@
         video.pause();
         video.currentTime = 0;
         container.style.display = 'none';
+        consoleArea.style.display = 'none';
+    }
+
+    function connectToCommandCenter() {
+        if (EXTERNAL_PANEL_URL.trim() !== "") {
+            window.location.href = EXTERNAL_PANEL_URL;
+        } else {
+            consoleArea.style.display = 'block';
+            consoleArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
     }
 </script>
 
