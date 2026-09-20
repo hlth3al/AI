@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پنل هوش مصنوعی معلم مجازی | حسین لعلیان</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --border: #334155;
+            --success: #22c55e;
+            --danger: #ef4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+            padding: 16px;
+            direction: rtl;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 22px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 18px;
+        }
+
+        h1 { 
+            color: var(--accent); 
+            font-size: 1.35rem; 
+            margin-bottom: 8px; 
+            line-height: 1.5;
+            font-weight: 800;
+        }
+        
+        .subtitle { 
+            color: var(--text-muted); 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+        }
+
+        .card {
+            background: var(--surface);
+            padding: 22px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+        }
+
+        .input-group { margin-bottom: 18px; }
+        
+        label { 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+            margin-bottom: 8px; 
+            color: #cbd5e1; 
+            font-size: 0.92rem; 
+            font-weight: 600; 
+        }
+
+        label i { color: var(--accent); }
+        
+        select, textarea {
+            width: 100%;
+            padding: 13px;
+            border-radius: 9px;
+            border: 1px solid var(--border);
+            background: #0b1329;
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        select:focus, textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 9px;
+            width: 100%;
+            font-weight: 700;
+            font-size: 1.02rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .btn:active { transform: translateY(0); }
+        .btn:disabled { background: #475569; cursor: not-allowed; opacity: 0.8; }
+
+        .status-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-top: 10px;
+            background: #1e293b;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        #outputBox {
+            margin-top: 22px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #090e1a;
+            border-right: 4px solid var(--accent);
+            min-height: 120px;
+            white-space: pre-wrap;
+            line-height: 2;
+            font-size: 0.98rem;
+            color: #e2e8f0;
+            border: 1px solid #1e293b;
+            border-right: 4px solid var(--accent);
+        }
+
+        footer { 
+            text-align: center; 
+            margin-top: 30px; 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>پنل هوش مصنوعی انجام‌دهنده خواسته‌های معلم مجازی</h1>
+        <p class="subtitle">حسین لعلیان؛ رتبه ۳۲ کنکور دکتری</p>
+    </header>
+
+    <div class="card">
+        <div class="input-group">
+            <label><i class="fa-solid fa-graduation-cap"></i> انتخاب حوزه و درس تخصصی:</label>
+            <select id="lesson">
+                <option value="علوم تجربی، فیزیک و زمین‌شناسی">علوم تجربی، فیزیک و زمین‌شناسی</option>
+                <option value="زبان و ادبیات عربی">زبان و ادبیات عربی (صرف، نحو و ترجمه)</option>
+                <option value="ریاضیات و هندسه">ریاضیات و هندسه (فرمول و حل مسئله)</option>
+                <option value="زبان انگلیسی">زبان انگلیسی (گرامر و ترجمه)</option>
+                <option value="ادبیات فارسی">ادبیات و زبان فارسی</option>
+                <option value="علوم انسانی و معارف">علوم انسانی، تاریخ، فلسفه و دینی</option>
+                <option value="عمومی">سایر علوم و مباحث درسی</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fa-solid fa-pen-nib"></i> متن سوال یا مبحث مورد نظر:</label>
+            <textarea id="question" rows="4" placeholder="سوال خود را با دقت بنویسید (مثلاً: ساختار اتم چیست؟ انواع اعراب در زبان عربی چیست؟ قانون دوم نیوتون را توضیح بده)..."></textarea>
+        </div>
+
+        <button id="submitBtn" class="btn" onclick="executeRealAI()">
+            <i class="fa-solid fa-brain"></i> دریافت پاسخ هوشمند معلم مجازی
+        </button>
+
+        <div id="outputBox">پاسخ تشریحی معلم مجازی پس از فشردن دکمه در این بخش نمایش داده می‌شود...</div>
+    </div>
+
+    <footer>
+        <p>توسعه اختصاصی سامانه‌ها | ارتباط مستقیم:</p>
+        <p><a href="mailto:ai.algorithms.ballistics@gmail.com" style="color: var(--accent); text-decoration: none; font-weight: bold;">ai.algorithms.ballistics@gmail.com</a></p>
+    </footer>
+</div>
+
+<script>
+    async function executeRealAI() {
+        const q = document.getElementById('question').value.trim();
+        const lesson = document.getElementById('lesson').value;
+        const output = document.getElementById('outputBox');
+        const btn = document.getElementById('submitBtn');
+
+        if (!q) {
+            alert("لطفاً سوال خود را در کادر متنی بنویسید.");
+            return;
+        }
+
+        output.innerHTML = "⏳ <strong>در حال برقراری ارتباط با شبکه هوش مصنوعی و نگارش پاسخ تحلیلی...</strong><br><small style='color: #94a3b8;'>لطفاً چند لحظه صبر کنید...</small>";
+        btn.disabled = true;
+
+        const promptText = `شما یک معلم مجازی و استاد مسلط در مبحث "${lesson}" هستید. لطفاً به این سوال به صورت دقیق، گام‌به‌گام، علمی و روان به زبان فارسی پاسخ دهید:\n${q}`;
+
+        // موتورهای ارتباطی متوالی و مقاوم به تحریم
+        const engines = [
+            // سرور ۱: اندپوینت مستقیم متن هوشمند بدون نیاز به پروکسی جانبی
+            async () => {
+                const response = await fetch("https://text.pollinations.ai/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        messages: [
+                            { role: "system", content: "شما یک معلم صبور و علمی ایرانی هستید. پاسخ‌ها را دقیق، خوانا و با ساختار آموزشی به زبان فارسی ارائه دهید." },
+                            { role: "user", content: promptText }
+                        ],
+                        model: "mistral",
+                        code: "beesknees"
+                    })
+                });
+                if (!response.ok) throw new Error("HTTP error " + response.status);
+                const txt = await response.text();
+                if (txt && txt.trim().length > 15 && !txt.includes("error") && !txt.includes("budget")) return txt;
+                throw new Error("Invalid response");
+            },
+
+            // سرور ۲: موتور جستجو و پاسخ برخط مبتنی بر Qwen
+            async () => {
+                const url = "https://text.pollinations.ai/" + encodeURIComponent(promptText) + "?model=qwen-coder";
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Fetch error");
+                const txt = await response.text();
+                if (txt && txt.trim().length > 15 && !txt.includes("budget")) return txt;
+                throw new Error("Invalid content");
+            },
+
+            // سرور ۳: مسیر متنی سریع سبک
+            async () => {
+                const url = "https://text.pollinations.ai/" + encodeURIComponent(promptText);
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Fetch fallback error");
+                const txt = await response.text();
+                if (txt && txt.trim().length > 15) return txt;
+                throw new Error("Fallback failed");
+            }
+        ];
+
+        let answered = false;
+
+        for (let i = 0; i < engines.length; i++) {
+            try {
+                const res = await Promise.race([
+                    engines[i](),
+                    new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), 14000))
+                ]);
+
+                if (res) {
+                    output.innerText = res.trim();
+                    answered = true;
+                    break;
+                }
+            } catch (err) {
+                console.warn(`Engine ${i + 1} failed, trying next...`, err);
+            }
+        }
+
+        if (!answered) {
+            output.innerHTML = `⚠️ <strong>خطا در برقراری ارتباط با هسته هوش مصنوعی:</strong><br>` +
+                `ارتباط شبکه با سرورها در حال حاضر به دلیل اختلالات اینترنتی یا محدودیت‌های تحریم با تاخیر مواجه شد.<br>` +
+                `🔹 لطفاً اتصال اینترنت خود را چک کرده و چند ثانیه بعد مجدداً دکمه را لمس کنید.`;
+        }
+
+        btn.disabled = false;
+    }
+</script>
+</body>
+</html>
