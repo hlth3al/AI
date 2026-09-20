@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درگاه امتیاز سرمایه گذاری پر بازده | شرکت صنایع پردرآمد تهرانیها</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        :root {
+            --bg-color: #0a0e14;
+            --card-bg: rgba(17, 25, 39, 0.9);
+            --accent-gold: #d4af37; /* طلایی اشرافی برای حس ثروت و سود */
+            --accent-blue: #00d2ff;
+            --text-main: #e5e7eb;
+            --border-glow: rgba(212, 175, 55, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; padding: 20px;
+            background-image: radial-gradient(circle at center, #1a2236 0%, #0a0e14 100%);
+        }
+
+        .main-panel {
+            max-width: 950px; width: 100%;
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 24px; padding: 40px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(212, 175, 55, 0.05);
+            position: relative; overflow: hidden;
+        }
+
+        .main-panel::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        header { text-align: center; margin-bottom: 35px; }
+
+        .company-name {
+            color: var(--accent-gold);
+            font-size: 1.1rem; font-weight: bold; letter-spacing: 1px;
+            margin-bottom: 10px; display: block;
+        }
+
+        h1 {
+            font-size: 1.8rem; color: #fff; line-height: 1.6; margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .promo-badge {
+            background: linear-gradient(45deg, #b8860b, #d4af37);
+            color: #000; padding: 5px 20px; border-radius: 50px;
+            font-weight: 900; font-size: 0.85rem; display: inline-block; margin-bottom: 20px;
+        }
+
+        .hero-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 25px; border-radius: 15px; margin-bottom: 30px;
+            text-align: justify; line-height: 1.9;
+        }
+
+        .hero-box p { color: #cbd5e1; font-size: 1rem; }
+
+        /* بخش دکمه فرماندهی با استایل ویژه */
+        .command-container {
+            text-align: center; padding: 30px;
+            background: rgba(0, 210, 255, 0.05);
+            border-radius: 20px; border: 1px solid rgba(0, 210, 255, 0.2);
+            margin: 40px 0;
+        }
+
+        .btn-master {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+            padding: 20px 30px; font-size: 1.05rem; font-weight: bold;
+            border-radius: 15px; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            display: inline-flex; align-items: center; gap: 15px; line-height: 1.6;
+        }
+
+        .btn-master:hover {
+            background: var(--accent-blue); color: #000;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
+            transform: scale(1.03);
+        }
+
+        .features-row {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px; margin-top: 30px;
+        }
+
+        .feature-item {
+            padding: 20px; background: rgba(255,255,255,0.02);
+            border-radius: 12px; border-right: 3px solid var(--accent-gold);
+        }
+
+        .feature-item h4 { color: var(--accent-gold); margin-bottom: 10px; }
+        .feature-item p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; }
+
+        .loading-status {
+            margin-top: 15px; font-size: 0.85rem; color: var(--accent-blue);
+            display: none; animation: blink 1s infinite;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        footer {
+            text-align: center; margin-top: 40px; padding-top: 20px;
+            border-top: 1px solid #30363d; color: #64748b; font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-panel">
+    <header>
+        <span class="company-name">شرکت صنایع پردرآمد تهرانیها</span>
+        <div class="promo-badge">فرصت استثنایی مشارکت در سود هوش مصنوعی</div>
+        <h1>درگاه امتیاز سرمایه گذاری پر بازده پنلها، داشبوردها و پلتفرمهای هوش مصنوعی</h1>
+    </header>
+
+    <div class="hero-box">
+        <p>
+            این پلتفرم، ویترین رسمی و نسخه ارزیابی (Demo) جهت واگذاری امتیاز بهره‌برداری از هوش مصنوعی پیشرفته است. 
+            <strong>شرکت صنایع پردرآمد تهرانیها</strong> با مدیریت <strong>حسین لعلیان</strong>، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند. نسخه نهایی با تمامی امکانات و اتصال به سورس‌های اختصاصی، پس از عقد قرارداد تحویل می‌گردد.
+        </p>
+    </div>
+
+    <div class="command-container">
+        <button class="btn-master" onclick="startConnection()">
+            🌐 درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان 
+        </button>
+        <div id="loader" class="loading-status">⌛ در حال برقراری ارتباط با هسته مرکزی فرماندهی...</div>
+    </div>
+
+    <div class="features-row">
+        <div class="feature-item">
+            <h4>📈 سرمایه‌گذاری پر بازده</h4>
+            <p>ورود به بازار بکر خدمات هوش مصنوعی با بالاترین نرخ بازگشت سرمایه در کوتاه‌ترین زمان ممکن.</p>
+        </div>
+        <div class="feature-item">
+            <h4>🔑 واگذاری کامل امتیاز</h4>
+            <p>شما مالک برند و پنل اختصاصی خود خواهید بود؛ با پشتیبانی فنی مستقیم شرکت صنایع پردرآمد تهرانیها.</p>
+        </div>
+    </div>
+
+    <footer>
+        تمامی حقوق این داشبورد متعلق به شرکت صنایع پردرآمد تهرانیها و شخص حسین لعلیان می‌باشد.
+    </footer>
+</div>
+
+<script>
+    function playBeep() {
+        try {
+            const context = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = context.createOscillator();
+            const gain = context.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(600, context.currentTime);
+            gain.gain.setValueAtTime(0.1, context.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.4);
+            osc.connect(gain);
+            gain.connect(context.destination);
+            osc.start();
+            osc.stop(context.currentTime + 0.4);
+        } catch(e) { console.error("Audio error", e); }
+    }
+
+    function startConnection() {
+        playBeep();
+        document.getElementById('loader').style.display = 'block';
+        
+        setTimeout(() => {
+            // در اینجا آدرس پنل اصلی خود را قرار دهید
+            alert("اتصال برقرار شد. در حال انتقال به درگاه جامع فرماندهی حسین لعلیان...");
+            // window.location.href = "آدرس_پنل_اصلی";
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>
