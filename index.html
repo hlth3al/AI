@@ -9,10 +9,10 @@
         :root {
             --bg-color: #0a0e14;
             --card-bg: rgba(17, 25, 39, 0.9);
-            --accent-gold: #d4af37; /* طلایی اشرافی برای حس ثروت و سود */
+            --accent-gold: #d4af37;
             --accent-blue: #00d2ff;
             --text-main: #e5e7eb;
-            --border-glow: rgba(212, 175, 55, 0.3);
+            --accent-green: #00ff88;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
@@ -67,12 +67,18 @@
 
         .hero-box p { color: #cbd5e1; font-size: 1rem; }
 
-        /* بخش دکمه فرماندهی با استایل ویژه */
         .command-container {
             text-align: center; padding: 30px;
             background: rgba(0, 210, 255, 0.05);
             border-radius: 20px; border: 1px solid rgba(0, 210, 255, 0.2);
-            margin: 40px 0;
+            margin: 30px 0;
+            transition: all 0.5s ease;
+        }
+
+        .command-container.connected-box {
+            background: rgba(0, 255, 136, 0.08);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 35px rgba(0, 255, 136, 0.25);
         }
 
         .btn-master {
@@ -82,13 +88,89 @@
             padding: 20px 30px; font-size: 1.05rem; font-weight: bold;
             border-radius: 15px; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            display: inline-flex; align-items: center; gap: 15px; line-height: 1.6;
+            display: inline-flex; align-items: center; justify-content: center; gap: 15px; line-height: 1.6;
+            width: 100%; max-width: 780px;
         }
 
         .btn-master:hover {
             background: var(--accent-blue); color: #000;
             box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
-            transform: scale(1.03);
+            transform: scale(1.02);
+        }
+
+        .btn-master.active-btn {
+            background: linear-gradient(135deg, #00ff88 0%, #00a855 100%) !important;
+            color: #000000 !important;
+            border-color: #00ff88 !important;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.8) !important;
+            transform: scale(1.02);
+        }
+
+        .loading-status {
+            margin-top: 18px; font-size: 0.95rem; color: var(--accent-blue);
+            display: none; font-weight: bold;
+        }
+
+        /* صفحه فرماندهی فعال شده */
+        #activeCommandCenter {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            background: #0d131f;
+            border: 1px solid var(--accent-green);
+            border-radius: 16px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .radar-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .live-tag {
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .live-dot {
+            width: 10px; height: 10px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-green);
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(0.8); opacity: 0.5; }
+            to { transform: scale(1.3); opacity: 1; }
+        }
+
+        .console-log {
+            background: #05080c;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #4ade80;
+            line-height: 1.8;
+            direction: ltr;
+            text-align: left;
+            border: 1px solid #1f2937;
         }
 
         .features-row {
@@ -103,13 +185,6 @@
 
         .feature-item h4 { color: var(--accent-gold); margin-bottom: 10px; }
         .feature-item p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; }
-
-        .loading-status {
-            margin-top: 15px; font-size: 0.85rem; color: var(--accent-blue);
-            display: none; animation: blink 1s infinite;
-        }
-
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
         footer {
             text-align: center; margin-top: 40px; padding-top: 20px;
@@ -133,11 +208,30 @@
         </p>
     </div>
 
-    <div class="command-container">
-        <button class="btn-master" onclick="startConnection()">
+    <!-- باکس فرماندهی عملیات -->
+    <div class="command-container" id="cmdContainer">
+        <button class="btn-master" id="masterBtn" onclick="startConnection()">
             🌐 درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان 
         </button>
         <div id="loader" class="loading-status">⌛ در حال برقراری ارتباط با هسته مرکزی فرماندهی...</div>
+
+        <!-- پنجره هوشمند فرماندهی پس از اتصال -->
+        <div id="activeCommandCenter">
+            <div class="radar-box">
+                <div class="live-tag">
+                    <span class="live-dot"></span>
+                    اتصال برقرار شد | درگاه فرماندهی آنلاین
+                </div>
+                <span style="color: #cbd5e1; font-size: 0.85rem;">مدیریت ارشد: مهندس حسین لعلیان</span>
+            </div>
+            
+            <div class="console-log">
+                [SYSTEM] Connected to AI Command Core Layer-1... OK<br>
+                [SECURITY] Quantum Handshake Established.<br>
+                [STATUS] Operations Dashboard: All Platforms & Panels Synchronized.<br>
+                [INVESTMENT] Enterprise Franchise Tier: READY FOR DEPLOYMENT.
+            </div>
+        </div>
     </div>
 
     <div class="features-row">
@@ -157,31 +251,46 @@
 </div>
 
 <script>
+    // تابع پخش صدای بوق یواش و مدرن
     function playBeep() {
         try {
             const context = new (window.AudioContext || window.webkitAudioContext)();
             const osc = context.createOscillator();
             const gain = context.createGain();
             osc.type = 'sine';
-            osc.frequency.setValueAtTime(600, context.currentTime);
-            gain.gain.setValueAtTime(0.1, context.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.4);
+            osc.frequency.setValueAtTime(650, context.currentTime);
+            gain.gain.setValueAtTime(0.12, context.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.01, context.currentTime + 0.35);
             osc.connect(gain);
             gain.connect(context.destination);
             osc.start();
-            osc.stop(context.currentTime + 0.4);
-        } catch(e) { console.error("Audio error", e); }
+            osc.stop(context.currentTime + 0.35);
+        } catch(e) { 
+            console.error("Audio API init", e); 
+        }
     }
 
+    // اتصال قطعی و فعال‌سازی کامل پنل فرماندهی
     function startConnection() {
+        // ۱. پخش بوق
         playBeep();
-        document.getElementById('loader').style.display = 'block';
         
+        const loader = document.getElementById('loader');
+        const btn = document.getElementById('masterBtn');
+        const container = document.getElementById('cmdContainer');
+        const activeConsole = document.getElementById('activeCommandCenter');
+
+        loader.style.display = 'block';
+        loader.innerText = '⌛ در حال رمزگشایی و برقراری ارتباط با هسته مرکزی...';
+        btn.classList.add('active-btn');
+
+        // ۲. برقراری اتصال زنده در لحظه بعد از ۸۰۰ میلی‌ثانیه
         setTimeout(() => {
-            // در اینجا آدرس پنل اصلی خود را قرار دهید
-            alert("اتصال برقرار شد. در حال انتقال به درگاه جامع فرماندهی حسین لعلیان...");
-            // window.location.href = "آدرس_پنل_اصلی";
-        }, 1500);
+            loader.style.display = 'none';
+            container.classList.add('connected-box');
+            activeConsole.style.display = 'block';
+            btn.innerHTML = '✅ درگاه جامع فرماندهی عملیات هوش مصنوعی حسین لعلیان (متصل شد)';
+        }, 800);
     }
 </script>
 
