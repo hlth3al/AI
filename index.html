@@ -12,7 +12,10 @@
             --accent-gold: #d4af37;
             --accent-blue: #00d2ff;
             --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
             --text-main: #e5e7eb;
+            --danger-border: #ef4444;
+            --danger-bg: rgba(239, 68, 68, 0.08);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
@@ -21,7 +24,7 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; padding: 20px;
+            min-height: 100vh; padding: 25px 15px;
             background-image: radial-gradient(circle at center, #1a2236 0%, #0a0e14 100%);
         }
 
@@ -38,8 +41,8 @@
 
         .company-name {
             color: var(--accent-gold);
-            font-size: 1.4rem; font-weight: bold;
-            display: block; margin-bottom: 4px;
+            font-size: 1.45rem; font-weight: bold;
+            display: block; margin-bottom: 5px;
         }
 
         .company-subname {
@@ -50,14 +53,15 @@
 
         .promo-badge {
             background: linear-gradient(45deg, #b8860b, #d4af37);
-            color: #000; padding: 6px 20px; border-radius: 50px;
+            color: #000; padding: 6px 22px; border-radius: 50px;
             font-weight: 900; font-size: 0.9rem; display: inline-block; margin-bottom: 15px;
         }
 
         h1 {
-            font-size: 1.45rem; color: #fff; line-height: 1.6; margin-bottom: 18px;
+            font-size: 1.4rem; color: #fff; line-height: 1.6; margin-bottom: 18px;
         }
 
+        /* کادر حقوق و مالکیت */
         .ownership-box {
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--accent-gold);
@@ -67,18 +71,76 @@
             text-align: center;
             color: #fce79a;
             font-weight: bold;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             line-height: 1.8;
         }
 
         .hero-box {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(212, 175, 55, 0.25);
-            padding: 22px; border-radius: 15px; margin-bottom: 25px;
+            padding: 20px; border-radius: 15px; margin-bottom: 25px;
             text-align: justify; line-height: 1.9; font-size: 0.95rem; color: #cbd5e1;
         }
 
-        /* کادر اصلی ورود */
+        /* دکمه‌های عملیاتی هوش مصنوعی (سقراطی، چهارجوابی، تحلیل) */
+        .ai-tools-section {
+            margin: 25px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.35);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .tools-title {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-weight:, 55, 0.12);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+            text-align: center;
+            color: #fce79a;
+            font-weight: bold;
+            font-size: 0.98rem;
+            line-height: 1.8;
+        }
+
+        .hero-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 20px; border-radius: 15px; margin-bottom: 25px;
+            text-align: justify; line-height: 1.9; font-size: 0.95rem; color: #cbd5e1;
+        }
+
+        /* دکمه‌های عملیاتی هوش مصنوعی (سقراطی، چهارجوابی، تحلیل) */
+        .ai-tools-section {
+            margin: 25px 0;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed rgba(212, 175, 55, 0.35);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .tools-title {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .btn-tool {
+            border: none;
+            padding: 14px 15px;ایت به درگاه و ویدیو */
         .action-area {
             text-align: center; margin: 25px 0;
         }
@@ -87,31 +149,29 @@
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
             border: 2px solid var(--accent-blue);
-            padding: 18px 22px;
-            font-size: 1.05rem;
+            padding: 16px 20px;
+            font-size: 1rem;
             font-weight: bold;
             border-radius: 14px;
             cursor: pointer;
             width: 100%;
-            line-height: 1.7;
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.35);
             transition: all 0.3s ease;
         }
 
         .btn-open-clip:hover {
             transform: scale(1.01);
-            box-shadow: 0 0 35px rgba(0, 210, 255, 0.7);
+            box-shadow: 0 0 35px rgba(0, 210, 255, 0.6);
         }
 
-        /* کادر بزرگتر انتخابی شامل هر دو دکمه نزدیک به هم */
         #choiceContainer {
             display: none;
             background: rgba(15, 23, 42, 0.98);
             border: 2px solid var(--accent-gold);
             border-radius: 18px;
-            padding: 22px 20px;
+            padding: 20px;
             margin: 20px 0;
-            box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             animation: fadeIn 0.4s ease;
         }
 
@@ -122,67 +182,47 @@
 
         .choice-title {
             text-align: center;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #fef08a;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
             font-weight: bold;
         }
 
         .choice-buttons-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px; /* دکمه ها کاملاً نزدیک به یکدیگر */
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 10px;
         }
 
-        /* دکمه رنگ اول (آبی نئونی) */
         .btn-choice-video {
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
             border: 2px solid var(--accent-blue);
-            padding: 15px 18px;
+            padding: 14px 16px;
             border-radius: 12px;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(0, 210, 255, 0.35);
-            text-align: center;
-            line-height: 1.6;
         }
 
-        .btn-choice-video:hover {
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.7);
-            transform: translateY(-2px);
-        }
-
-        /* دکمه رنگ دوم (سبز زمردی) با نماد هوش مصنوعی */
         .btn-choice-platform {
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
             color: #ffffff;
             border: 2px solid #34d399;
-            padding: 15px 18px;
+            padding: 14px 16px;
             border-radius: 12px;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
-            text-align: center;
-            line-height: 1.6;
         }
 
-        .btn-choice-platform:hover {
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.7);
-            transform: translateY(-2px);
-        }
-
-        .btn-choice-platform.active-beep {
+        .btn-choice-platform.active-beep, .btn-direct-connect.active-beep {
             background: #22c55e !important;
-            box-shadow: 0 0 40px #22c55e !important;
-            transform: scale(1.02);
+            box-shadow: 0 0 35px #22c55e !important;
         }
 
-        /* کادر پخش کلیپ */
         #videoPlayerContainer {
             display: none;
             background: #020617;
@@ -190,7 +230,7 @@
             border-radius: 18px;
             padding: 20px;
             margin: 25px 0;
-            box-shadow: 0 0 35px rgba(0, 210, 255, 0.35);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
         }
 
         .video-header-bar {
@@ -210,15 +250,6 @@
             font-weight: bold;
             font-size: 0.9rem;
             cursor: pointer;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .btn-direct-connect.active-beep {
-            background: #22c55e !important;
-            box-shadow: 0 0 35px #22c55e !important;
-            transform: scale(1.02);
         }
 
         .btn-close-video {
@@ -234,21 +265,44 @@
         }
 
         .video-box video {
-            width: 100%; max-height: 500px; display: block;
+            width: 100%; max-height: 480px; display: block;
         }
 
         .features-row {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px; margin-top: 30px;
+            gap: 18px; margin: 25px 0;
         }
 
         .feature-item {
-            padding: 20px; background: rgba(255,255,255,0.02);
+            padding: 18px; background: rgba(255,255,255,0.02);
             border-radius: 12px; border-right: 3px solid var(--accent-gold);
         }
 
-        .feature-item h4 { color: var(--accent-gold); margin-bottom: 10px; }
+        .feature-item h4 { color: var(--accent-gold); margin-bottom: 8px; }
         .feature-item p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; }
+
+        /* کادر اخطار امنیتی در انتهای صفحه */
+        .security-warning-box {
+            background: var(--danger-bg);
+            border: 2px solid var(--danger-border);
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-top: 30px;
+            color: #fca5a5;
+            text-align: justify;
+            line-height: 1.8;
+            box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
+        }
+
+        .security-warning-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #f87171;
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -261,6 +315,7 @@
         <h1>درگاه امتیاز سرمایه گذاری پر بازده پنلها، داشبوردها و پلتفرمهای هوش مصنوعی</h1>
     </header>
 
+    <!-- کادر مالکیت حقوقی پلتفرم -->
     <div class="ownership-box">
         تمامی حقوق این پلتفرم متعلق به شرکت صنایع پردرآمد تهرانیها با مدیر عاملی حسین لعلیان (رتبه ۳۲ دکتری)می‌باشد.
     </div>
@@ -268,17 +323,32 @@
     <div class="hero-box">
         این پلتفرمهای هوش مصنوعی فعلا در قالب پیش نمایش و دمو هستند که در صورت سفارش، نسخه نهایی با تمامی امکانات پس از عقد قرارداد تحویل می‌گردد!<br><br>
         بعبارتی این پلتفرمها، ویترین رسمی و نسخه ارزیابی (Demo) جهت واگذاری امتیاز بهره‌برداری از هوش مصنوعی پیشرفته است.<br><br>
-        شرکت صنایع پردرآمد تهرانیها با مدیریت حسین لعلیان، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات پلتفرمهای هوش مصنوعی، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند. نسخه نهایی با تمامی امکانات، پس از عقد قرارداد تحویل می‌گردد.
+        شرکت صنایع پردرآمد تهرانیها با مدیریت حسین لعلیان، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات پلتفرمهای هوش مصنوعی، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند.
     </div>
 
-    <!-- کادر اصلی ورودی -->
+    <!-- دکمه‌های تخصصی هوش مصنوعی اضافه شده -->
+    <div class="ai-tools-section">
+        <div class="tools-title">⚙️ پردازش‌ها و ابزارهای هوشمند اختصاصی</div>
+        <div class="tools-grid">
+            <button class="btn-tool btn-socratic" onclick="handleToolAction('پاسخ سقراطی')">
+                <span>🧠</span> پاسخ سقراطی
+            </button>
+            <button class="btn-tool btn-mcq" onclick="handleToolAction('تولید سوال و پاسخ چهار جوابی')">
+                <span>📝</span> تولید سوال و پاسخ چهار جوابی
+            </button>
+            <button class="btn-tool btn-analytics" onclick="handleToolAction('تحلیل و تجزیه سوال و پاسخ')">
+                <span>📊</span> تحلیل و تجزیه سوال و پاسخ
+            </button>
+        </div>
+    </div>
+
+    <!-- کادر اصلی ورود و انتخاب -->
     <div class="action-area">
         <button class="btn-open-clip" onclick="showChoiceMenu()">
             ⚡ مشاهده کلیپ و بازگشایی درگاه فرماندهی عملیات هوش مصنوعی حسین لعلیان
         </button>
     </div>
 
-    <!-- کادر انتخابی شامل متن و هر دو دکمه نزدیک به هم با دو رنگ متفاوت -->
     <div id="choiceContainer">
         <div class="choice-title">
             لطفاً مسیر مورد نظر خود را انتخاب فرمایید:
@@ -293,7 +363,7 @@
         </div>
     </div>
 
-    <!-- پخش‌کننده کلیپ -->
+    <!-- پخش کلیپ -->
     <div id="videoPlayerContainer">
         <div class="video-header-bar">
             <button id="connectTargetBtn" class="btn-direct-connect" onclick="connectAndRedirectWithBeep(this)">
@@ -318,6 +388,14 @@
             <p>شما مالک برند و پنل اختصاصی خود خواهید بود؛ با پشتیبانی فنی مستقیم شرکت صنایع پردرآمد تهرانیها.</p>
         </div>
     </div>
+
+    <!-- کادر اخطار امنیتی در پایان صفحه -->
+    <div class="security-warning-box">
+        <div class="security-warning-header">
+            <span>⚠️</span> اخطار امنیتی و حقوقی:
+        </div>
+        هرگونه سوءاستفاده، کپی‌برداری غیرمجاز، بازتولید کدها، بهره‌برداری تجاری بدون مجوز رسمی یا جعل نام و محتوای این سامانه و پلتفرم‌های تابعه، اکیداً ممنوع بوده و مشمول پیگرد شدید قانونی و قضایی از طریق مراجع صالحه و پلیس فتا خواهد گردید. کلیه فعالیت‌ها و داده‌های ورودی در بستر این سرور پایش و ثبت می‌گردد.
+    </div>
 </div>
 
 <script>
@@ -326,13 +404,11 @@
     const video = document.getElementById('mainClip');
     const targetUrl = 'https://hlth3al.github.io/Hossein-Laaliyan-AI/';
 
-    // نمایش منوی دو گزینه‌ای
     function showChoiceMenu() {
         choiceBox.style.display = 'block';
         choiceBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // تولید صدای بوق
     function playBeepSound() {
         try {
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -348,7 +424,6 @@
         } catch(e) { console.log("صوت پشتیبانی نشد", e); }
     }
 
-    // گزینه اول: باز کردن و پخش کلیپ جانفدایان ایران
     function playDemoClip() {
         choiceBox.style.display = 'none';
         container.style.display = 'block';
@@ -357,14 +432,12 @@
         container.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // بستن کلیپ
     function stopDemoClip() {
         video.pause();
         video.currentTime = 0;
         container.style.display = 'none';
     }
 
-    // گزینه دوم: بوق، افکت و هدایت به درگاه پلتفرم‌ها
     function connectAndRedirectWithBeep(btnElement) {
         playBeepSound();
         if (btnElement) {
@@ -372,6 +445,11 @@
             btnElement.innerHTML = '🤖 در حال انتقال به پلتفرم‌های هوش مصنوعی...';
         }
         setTimeout(() => { window.location.href = targetUrl; }, 500);
+    }
+
+    function handleToolAction(actionName) {
+        playBeepSound();
+        alert('بخش «' + actionName + '» در هسته هوش مصنوعی فعال شد. در حال بارگذاری ماژول مربوطه...');
     }
 </script>
 
