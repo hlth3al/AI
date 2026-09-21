@@ -103,15 +103,15 @@
             box-shadow: 0 0 35px rgba(0, 210, 255, 0.7);
         }
 
-        /* کادر دو گزینه‌ای انتخاب */
+        /* کادر بزرگتر انتخابی شامل هر دو دکمه نزدیک به هم */
         #choiceContainer {
             display: none;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(15, 23, 42, 0.98);
             border: 2px solid var(--accent-gold);
             border-radius: 18px;
-            padding: 24px;
+            padding: 22px 20px;
             margin: 20px 0;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
             animation: fadeIn 0.4s ease;
         }
 
@@ -122,51 +122,57 @@
 
         .choice-title {
             text-align: center;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: #fef08a;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             font-weight: bold;
         }
 
         .choice-buttons-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px; /* دکمه ها کاملاً نزدیک به یکدیگر */
         }
 
+        /* دکمه رنگ اول (آبی نئونی) */
         .btn-choice-video {
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-            color: #fff;
+            color: #ffffff;
             border: 2px solid var(--accent-blue);
-            padding: 16px 20px;
+            padding: 15px 18px;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 0.98rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.35);
+            text-align: center;
+            line-height: 1.6;
         }
 
         .btn-choice-video:hover {
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.6);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.7);
             transform: translateY(-2px);
         }
 
+        /* دکمه رنگ دوم (سبز زمردی) با نماد هوش مصنوعی */
         .btn-choice-platform {
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            color: #fff;
+            color: #ffffff;
             border: 2px solid #34d399;
-            padding: 16px 20px;
+            padding: 15px 18px;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 0.98rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
+            text-align: center;
+            line-height: 1.6;
         }
 
         .btn-choice-platform:hover {
-            box-shadow: 0 0 25px rgba(16, 185, 129, 0.6);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.7);
             transform: translateY(-2px);
         }
 
@@ -265,27 +271,29 @@
         شرکت صنایع پردرآمد تهرانیها با مدیریت حسین لعلیان، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات پلتفرمهای هوش مصنوعی، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند. نسخه نهایی با تمامی امکانات، پس از عقد قرارداد تحویل می‌گردد.
     </div>
 
-    <!-- کادر اصلی ورودی که حفظ شده است -->
+    <!-- کادر اصلی ورودی -->
     <div class="action-area">
         <button class="btn-open-clip" onclick="showChoiceMenu()">
             ⚡ مشاهده کلیپ و بازگشایی درگاه فرماندهی عملیات هوش مصنوعی حسین لعلیان
         </button>
     </div>
 
-    <!-- دو گزینه انتخابی که پس از کلیک نمایش داده می‌شوند -->
+    <!-- کادر انتخابی شامل متن و هر دو دکمه نزدیک به هم با دو رنگ متفاوت -->
     <div id="choiceContainer">
-        <div class="choice-title">لطفاً مسیر مورد نظر خود را انتخاب فرمایید:</div>
+        <div class="choice-title">
+            لطفاً مسیر مورد نظر خود را انتخاب فرمایید:
+        </div>
         <div class="choice-buttons-grid">
             <button class="btn-choice-video" onclick="playDemoClip()">
-                🎬 میخواهم کلیپ را ببینم
+                🎬 میخواهم کلیپ جانفدایان ایران را ببینم!
             </button>
             <button id="btnPlatformChoice" class="btn-choice-platform" onclick="connectAndRedirectWithBeep(this)">
-                🚀 میخواهم پلتفرمهای هوش مصنوعی را ببینم
+                🤖 میخواهم پلتفرمهای هوش مصنوعی را ببینم!
             </button>
         </div>
     </div>
 
-    <!-- پخش‌کننده ویدیو -->
+    <!-- پخش‌کننده کلیپ -->
     <div id="videoPlayerContainer">
         <div class="video-header-bar">
             <button id="connectTargetBtn" class="btn-direct-connect" onclick="connectAndRedirectWithBeep(this)">
@@ -318,7 +326,7 @@
     const video = document.getElementById('mainClip');
     const targetUrl = 'https://hlth3al.github.io/Hossein-Laaliyan-AI/';
 
-    // باز کردن منوی انتخاب دو گزینه‌ای
+    // نمایش منوی دو گزینه‌ای
     function showChoiceMenu() {
         choiceBox.style.display = 'block';
         choiceBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -340,8 +348,9 @@
         } catch(e) { console.log("صوت پشتیبانی نشد", e); }
     }
 
-    // ۱. گزینه اول: باز کردن و پخش کلیپ
+    // گزینه اول: باز کردن و پخش کلیپ جانفدایان ایران
     function playDemoClip() {
+        choiceBox.style.display = 'none';
         container.style.display = 'block';
         video.currentTime = 0;
         video.play().catch(e => console.log("نیازمند تعامل کاربر", e));
@@ -355,12 +364,12 @@
         container.style.display = 'none';
     }
 
-    // ۲. گزینه دوم و دکمه اتصال: بوق، افکت و هدایت به لینک
+    // گزینه دوم: بوق، افکت و هدایت به درگاه پلتفرم‌ها
     function connectAndRedirectWithBeep(btnElement) {
         playBeepSound();
         if (btnElement) {
             btnElement.classList.add('active-beep');
-            btnElement.innerHTML = '⚡ در حال انتقال به پلتفرم‌های هوش مصنوعی...';
+            btnElement.innerHTML = '🤖 در حال انتقال به پلتفرم‌های هوش مصنوعی...';
         }
         setTimeout(() => { window.location.href = targetUrl; }, 500);
     }
