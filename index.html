@@ -38,27 +38,26 @@
 
         .company-name {
             color: var(--accent-gold);
-            font-size: 1.35rem; font-weight: bold;
-            display: block; margin-bottom: 6px;
+            font-size: 1.4rem; font-weight: bold;
+            display: block; margin-bottom: 4px;
         }
 
         .company-subname {
-            color: #38bdf8;
-            font-size: 1.15rem; font-weight: bold;
-            display: block; margin-bottom: 10px;
+            color: var(--accent-blue);
+            font-size: 1.2rem; font-weight: bold;
+            display: block; margin-bottom: 15px;
         }
 
         .promo-badge {
             background: linear-gradient(45deg, #b8860b, #d4af37);
-            color: #000; padding: 5px 20px; border-radius: 50px;
-            font-weight: 900; font-size: 0.85rem; display: inline-block; margin-bottom: 12px; margin-top: 5px;
+            color: #000; padding: 6px 20px; border-radius: 50px;
+            font-weight: 900; font-size: 0.9rem; display: inline-block; margin-bottom: 15px;
         }
 
         h1 {
             font-size: 1.45rem; color: #fff; line-height: 1.6; margin-bottom: 18px;
         }
 
-        /* جمله مالکیت در اوایل پنل */
         .ownership-box {
             background: rgba(212, 175, 55, 0.12);
             border: 1px solid var(--accent-gold);
@@ -75,11 +74,10 @@
         .hero-box {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(212, 175, 55, 0.25);
-            padding: 20px; border-radius: 15px; margin-bottom: 25px;
+            padding: 22px; border-radius: 15px; margin-bottom: 25px;
             text-align: justify; line-height: 1.9; font-size: 0.95rem; color: #cbd5e1;
         }
 
-        /* دکمه ورود و نمایش کلیپ */
         .action-area {
             text-align: center; margin: 25px 0;
         }
@@ -104,7 +102,6 @@
             box-shadow: 0 0 35px rgba(0, 210, 255, 0.7);
         }
 
-        /* بخش پلیر کلیپ همراه با دکمه ضربدر و دکمه اتصال در کنار آن */
         #videoPlayerContainer {
             display: none;
             background: #020617;
@@ -116,17 +113,12 @@
         }
 
         .video-header-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; flex-wrap: wrap; gap: 12px;
+            justify-content: space-between; align-items: center;
             border-bottom: 1px solid #1e293b;
-            padding-bottom: 14px;
-            margin-bottom: 15px;
+            padding-bottom: 14px; margin-bottom: 15px;
         }
 
-        /* دکمه اختصاصی اتصال کنار ضربدر */
         .btn-direct-connect {
             flex: 1;
             background: linear-gradient(135deg, #059669 0%, #10b981 100%);
@@ -135,8 +127,7 @@
             padding: 12px 18px;
             border-radius: 10px;
             font-weight: bold;
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.9rem;
             cursor: pointer;
             box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
             transition: all 0.3s ease;
@@ -145,91 +136,29 @@
 
         .btn-direct-connect.active-beep {
             background: #22c55e !important;
-            box-shadow: 0 0 35px #22c55e, 0 0 60px #10b981 !important;
+            box-shadow: 0 0 35px #22c55e !important;
             transform: scale(1.02);
         }
 
         .btn-close-video {
-            background: #dc2626;
-            color: #fff;
+            background: #dc2626; color: #fff;
             border: 2px solid #ef4444;
-            padding: 12px 18px;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1rem;
-            white-space: nowrap;
-            transition: 0.2s;
-        }
-
-        .btn-close-video:hover {
-            background: #b91c1c;
+            padding: 12px 18px; border-radius: 10px;
+            font-weight: bold; cursor: pointer;
         }
 
         .video-box {
             background: #000; border-radius: 12px; overflow: hidden;
-            border: 1px solid #334155; margin-bottom: 10px;
+            border: 1px solid #334155;
         }
 
         .video-box video {
             width: 100%; max-height: 500px; display: block;
         }
 
-        /* پنل فرماندهی */
-        .command-section {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid #334155;
-            border-radius: 16px; padding: 22px; margin-top: 25px;
-        }
-
-        .status-badge {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent-green);
-            border: 1px solid var(--accent-green);
-            padding: 5px 14px; border-radius: 6px;
-            font-size: 0.85rem; font-weight: bold; display: inline-block;
-            margin-bottom: 14px;
-        }
-
-        .grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px; margin: 18px 0;
-        }
-
-        .box {
-            background: #0f172a; border: 1px solid #1e293b;
-            padding: 14px; border-radius: 10px; text-align: center;
-        }
-
-        .box small { color: #94a3b8; display: block; font-size: 0.8rem; margin-bottom: 4px; }
-        .box strong { font-size: 1rem; color: #fff; }
-
-        .terminal-input-box {
-            display: flex; gap: 10px; margin-top: 15px;
-        }
-
-        .terminal-input-box input {
-            flex: 1; background: #0b1120; border: 1px solid #334155;
-            padding: 12px 16px; border-radius: 10px; color: #fff;
-            font-size: 0.95rem; outline: none;
-        }
-
-        .btn-send {
-            background: var(--accent-blue); color: #000; font-weight: bold;
-            border: none; padding: 0 24px; border-radius: 10px;
-            cursor: pointer; font-size: 0.95rem;
-        }
-
-        .terminal-output {
-            margin-top: 15px; background: #000; border: 1px solid #1e293b;
-            border-radius: 10px; padding: 15px; font-size: 0.9rem;
-            color: #38bdf8; min-height: 65px; line-height: 1.8;
-            direction: rtl; text-align: right; font-family: monospace, sans-serif;
-        }
-
         .features-row {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px; margin-top: 25px;
+            gap: 20px; margin-top: 30px;
         }
 
         .feature-item {
@@ -237,7 +166,7 @@
             border-radius: 12px; border-right: 3px solid var(--accent-gold);
         }
 
-        .feature-item h4 { color: var(--accent-gold); margin-bottom: 8px; }
+        .feature-item h4 { color: var(--accent-gold); margin-bottom: 10px; }
         .feature-item p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; }
     </style>
 </head>
@@ -247,83 +176,40 @@
     <header>
         <span class="company-name">شرکت صنایع پردرآمد تهرانیها</span>
         <span class="company-subname">شرکت هوش مصنوعی ما ایرانیها</span>
-        <div class="promo-badge">فرصت استثنایی مشارکت در سود هوش مصنوعی</div>
+        <div class="promo-badge">فرصت استثنایی مشارکت در پربازدهی سود پلتفرمهای هوش مصنوعی شرکت صنایع پردرآمد تهرانیها</div>
         <h1>درگاه امتیاز سرمایه گذاری پر بازده پنلها، داشبوردها و پلتفرمهای هوش مصنوعی</h1>
     </header>
 
-    <!-- جمله مالکیت در اوایل پنل -->
     <div class="ownership-box">
         تمامی حقوق این پلتفرم متعلق به شرکت صنایع پردرآمد تهرانیها با مدیر عاملی حسین لعلیان (رتبه ۳۲ دکتری)می‌باشد.
     </div>
 
-    <!-- متن معرفی -->
     <div class="hero-box">
-        این پلتفرم، ویترین رسمی و نسخه ارزیابی (Demo) جهت واگذاری امتیاز بهره‌برداری از هوش مصنوعی پیشرفته است. شرکت صنایع پردرآمد تهرانیها با مدیریت حسین لعلیان، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند. نسخه نهایی با تمامی امکانات، پس از عقد قرارداد تحویل می‌گردد.
+        این پلتفرمهای هوش مصنوعی فعلا در قالب پیش نمایش و دمو هستند که در صورت سفارش، نسخه نهایی با تمامی امکانات پس از عقد قرارداد تحویل می‌گردد!<br><br>
+        بعبارتی این پلتفرمها، ویترین رسمی و نسخه ارزیابی (Demo) جهت واگذاری امتیاز بهره‌برداری از هوش مصنوعی پیشرفته است.<br><br>
+        شرکت صنایع پردرآمد تهرانیها با مدیریت حسین لعلیان، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات پلتفرمهای هوش مصنوعی، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند. نسخه نهایی با تمامی امکانات، پس از عقد قرارداد تحویل می‌گردد.
     </div>
 
-    <!-- دکمه ورود و مشاهده کلیپ -->
     <div class="action-area">
         <button class="btn-open-clip" onclick="playDemoClip()">
             ⚡ مشاهده کلیپ و بازگشایی درگاه فرماندهی عملیات هوش مصنوعی حسین لعلیان
         </button>
     </div>
 
-    <!-- بخش کلیپ همراه ضربدر و دکمه اتصال در کنار آن -->
     <div id="videoPlayerContainer">
         <div class="video-header-bar">
-            <!-- دکمه اتصال کنار ضربدر همراه صدای بوق و نور و انتقال -->
             <button id="connectTargetBtn" class="btn-direct-connect" onclick="connectAndRedirectWithBeep()">
                 🔊 اتصال به درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان
             </button>
-            <!-- دکمه ضربدر بستن -->
             <button class="btn-close-video" onclick="stopDemoClip()">✕ بستن</button>
         </div>
         <div class="video-box">
             <video id="mainClip" controls playsinline preload="auto">
                 <source src="demo.mp4" type="video/mp4">
-                مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
             </video>
         </div>
     </div>
 
-    <!-- پنل درگاه فرماندهی -->
-    <div class="command-section">
-        <h3 style="color: var(--accent-blue); font-size: 1.1rem; margin-bottom: 10px;">
-            🌐 درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان
-        </h3>
-        <div class="status-badge">● آنلاین و متصل</div>
-        <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 12px; line-height: 1.8;">
-            🛰️ درگاه جامع فرماندهی عملیات هوش مصنوعی حسین لعلیان<br>
-            هسته پردازشی متصل شد. ارتباط پایدار با سرور فرماندهی برقرار است.
-        </p>
-
-        <div class="grid">
-            <div class="box">
-                <small>وضعیت اتصال</small>
-                <strong style="color: var(--accent-green);">فعال (Connected)</strong>
-            </div>
-            <div class="box">
-                <small>مدیریت درگاه</small>
-                <strong style="color: var(--accent-gold);">حسین لعلیان</strong>
-            </div>
-            <div class="box">
-                <small>سطح دسترسی</small>
-                <strong style="color: var(--accent-blue);">Super Admin</strong>
-            </div>
-        </div>
-
-        <div class="terminal-input-box">
-            <input type="text" id="cmdInput" value="آنالیز فرصت سرمایه‌گذاری و اتصال به موتور هوش مصنوعی" />
-            <button class="btn-send" onclick="sendCmd()">ارسال فرمان</button>
-        </div>
-
-        <div class="terminal-output" id="termOutput">
-            &gt; [OK] فرماندهی هوش مصنوعی حسین لعلیان برقرار شد.<br>
-            &gt; موتور پردازش عملیاتی در حالت آماده‌باش قرار دارد.
-        </div>
-    </div>
-
-    <!-- بخش مزایا -->
     <div class="features-row">
         <div class="feature-item">
             <h4>📈 سرمایه‌گذاری پر بازده</h4>
@@ -341,7 +227,6 @@
     const video = document.getElementById('mainClip');
     const targetUrl = 'https://hlth3al.github.io/Hossein-Laaliyan-AI/';
 
-    // پخش بوق الکترونیکی
     function playBeepSound() {
         try {
             const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -353,16 +238,10 @@
             osc.connect(gain);
             gain.connect(audioCtx.destination);
             osc.start();
-            setTimeout(() => {
-                osc.stop();
-                audioCtx.close();
-            }, 350);
-        } catch(e) {
-            console.log("صوت پشتیبانی نشد", e);
-        }
+            setTimeout(() => { osc.stop(); audioCtx.close(); }, 350);
+        } catch(e) { console.log("صوت پشتیبانی نشد", e); }
     }
 
-    // باز کردن کلیپ
     function playDemoClip() {
         container.style.display = 'block';
         video.currentTime = 0;
@@ -370,32 +249,18 @@
         container.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // بستن کلیپ
     function stopDemoClip() {
         video.pause();
         video.currentTime = 0;
         container.style.display = 'none';
     }
 
-    // اتصال با بوق، روشن شدن و هدایت به آدرس
     function connectAndRedirectWithBeep() {
         const btn = document.getElementById('connectTargetBtn');
         playBeepSound();
         btn.classList.add('active-beep');
-        btn.innerHTML = '⚡ اتصال با موفقیت تایید شد! در حال انتقال به درگاه فرماندهی...';
-
-        setTimeout(() => {
-            window.location.href = targetUrl;
-        }, 500);
-    }
-
-    // ارسال فرمان ترمینال
-    function sendCmd() {
-        const input = document.getElementById('cmdInput');
-        const output = document.getElementById('termOutput');
-        const val = input.value.trim();
-        if(!val) return;
-        output.innerHTML = `&gt; [OK] فرماندهی هوش مصنوعی حسین لعلیان برقرار شد.<br>&gt; پردازش دستور: "${val}" با موفقیت تایید و اجرا شد.`;
+        btn.innerHTML = '⚡ اتصال با موفقیت تایید شد! در حال انتقال...';
+        setTimeout(() => { window.location.href = targetUrl; }, 500);
     }
 </script>
 
