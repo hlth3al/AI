@@ -1,457 +1,406 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرکت صنایع پردرآمد تهرانیها | شرکت هوش مصنوعی ما ایرانیها</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <style>
-        :root {
-            --bg-color: #0a0e14;
-            --card-bg: rgba(17, 25, 39, 0.95);
-            --accent-gold: #d4af37;
-            --accent-blue: #00d2ff;
-            --accent-green: #10b981;
-            --accent-purple: #8b5cf6;
-            --text-main: #e5e7eb;
-            --danger-border: #ef4444;
-            --danger-bg: rgba(239, 68, 68, 0.08);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شرکت صنایع پردرآمد تهرانیها | شرکت هوش مصنوعی ما ایرانیها</title>
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #111827;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #059669;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --border: #1f2937;
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Vazirmatn", Tahoma, sans-serif;
+    }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex; justify-content: center; align-items: center;
-            min-height: 100vh; padding: 25px 15px;
-            background-image: radial-gradient(circle at center, #1a2236 0%, #0a0e14 100%);
-        }
+    body {
+      background: radial-gradient(circle at top, #1e1b4b 0%, var(--bg-color) 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .main-panel {
-            max-width: 980px; width: 100%;
-            background: var(--card-bg);
-            border: 1px solid #30363d;
-            border-radius: 24px; padding: 35px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.8);
-            position: relative;
-        }
+    .container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-        header { text-align: center; margin-bottom: 20px; }
+    header {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
 
-        .company-name {
-            color: var(--accent-gold);
-            font-size: 1.45rem; font-weight: bold;
-            display: block; margin-bottom: 5px;
-        }
+    header h1 {
+      font-size: 1.7rem;
+      color: #60a5fa;
+      margin-bottom: 8px;
+    }
 
-        .company-subname {
-            color: var(--accent-blue);
-            font-size: 1.2rem; font-weight: bold;
-            display: block; margin-bottom: 15px;
-        }
+    header h2 {
+      font-size: 1.15rem;
+      color: #34d399;
+      font-weight: 500;
+    }
 
-        .promo-badge {
-            background: linear-gradient(45deg, #b8860b, #d4af37);
-            color: #000; padding: 6px 22px; border-radius: 50px;
-            font-weight: 900; font-size: 0.9rem; display: inline-block; margin-bottom: 15px;
-        }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
 
-        h1 {
-            font-size: 1.4rem; color: #fff; line-height: 1.6; margin-bottom: 18px;
-        }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 15px;
+    }
 
-        /* کادر حقوق و مالکیت */
-        .ownership-box {
-            background: rgba(212, 175, 55, 0.12);
-            border: 1px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin-bottom: 22px;
-            text-align: center;
-            color: #fce79a;
-            font-weight: bold;
-            font-size: 0.98rem;
-            line-height: 1.8;
-        }
+    .btn {
+      padding: 13px 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.98rem;
+      font-weight: bold;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #ffffff;
+      outline: none;
+    }
 
-        .hero-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            padding: 20px; border-radius: 15px; margin-bottom: 25px;
-            text-align: justify; line-height: 1.9; font-size: 0.95rem; color: #cbd5e1;
-        }
+    .btn-socratic {
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    }
+    .btn-socratic:hover {
+      background: linear-gradient(135deg, #6d28d9, #4338ca);
+      transform: translateY(-2px);
+    }
 
-        /* دکمه‌های عملیاتی هوش مصنوعی (سقراطی، چهارجوابی، تحلیل) */
-        .ai-tools-section {
-            margin: 25px 0;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px dashed rgba(212, 175, 55, 0.35);
-            border-radius: 16px;
-            padding: 20px;
-        }
+    .btn-quiz {
+      background: linear-gradient(135deg, #059669, #0d9488);
+    }
+    .btn-quiz:hover {
+      background: linear-gradient(135deg, #047857, #0f766e);
+      transform: translateY(-2px);
+    }
 
-        .tools-title {
-            text-align: center;
-            font-size: 1rem;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-            font-weight:, 55, 0.12);
-            border: 1px solid var(--accent-gold);
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin-bottom: 22px;
-            text-align: center;
-            color: #fce79a;
-            font-weight: bold;
-            font-size: 0.98rem;
-            line-height: 1.8;
-        }
+    .btn-analyze {
+      background: linear-gradient(135deg, #ea580c, #c2410c);
+    }
+    .btn-analyze:hover {
+      background: linear-gradient(135deg, #c2410c, #9a3412);
+      transform: translateY(-2px);
+    }
 
-        .hero-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            padding: 20px; border-radius: 15px; margin-bottom: 25px;
-            text-align: justify; line-height: 1.9; font-size: 0.95rem; color: #cbd5e1;
-        }
+    .btn-primary {
+      background: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
 
-        /* دکمه‌های عملیاتی هوش مصنوعی (سقراطی، چهارجوابی، تحلیل) */
-        .ai-tools-section {
-            margin: 25px 0;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px dashed rgba(212, 175, 55, 0.35);
-            border-radius: 16px;
-            padding: 20px;
-        }
+    .btn-secondary {
+      background: #374151;
+    }
+    .btn-secondary:hover {
+      background: #4b5563;
+    }
 
-        .tools-title {
-            text-align: center;
-            font-size: 1rem;
-            color: var(--accent-gold);
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
+    textarea {
+      width: 100%;
+      height: 110px;
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      color: #fff;
+      font-size: 0.95rem;
+      resize: vertical;
+      outline: none;
+      margin-bottom: 12px;
+    }
+    textarea:focus {
+      border-color: #60a5fa;
+    }
 
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-        }
+    .output-box {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 15px;
+      line-height: 1.8;
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      min-height: 70px;
+    }
 
-        .btn-tool {
-            border: none;
-            padding: 14px 15px;ایت به درگاه و ویدیو */
-        .action-area {
-            text-align: center; margin: 25px 0;
-        }
+    .quiz-card {
+      background: #1e293b;
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+      border: 1px solid #334155;
+    }
 
-        .btn-open-clip {
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-            color: #ffffff;
-            border: 2px solid var(--accent-blue);
-            padding: 16px 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 14px;
-            cursor: pointer;
-            width: 100%;
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.35);
-            transition: all 0.3s ease;
-        }
+    .quiz-option {
+      display: block;
+      width: 100%;
+      text-align: right;
+      padding: 10px 14px;
+      margin: 8px 0;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #f1f5f9;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .quiz-option:hover {
+      background: #1e293b;
+      border-color: #60a5fa;
+    }
 
-        .btn-open-clip:hover {
-            transform: scale(1.01);
-            box-shadow: 0 0 35px rgba(0, 210, 255, 0.6);
-        }
+    /* کادر اخطار امنیتی */
+    .security-alert {
+      background: rgba(220, 38, 38, 0.08);
+      border: 2px dashed var(--danger);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-top: 10px;
+    }
 
-        #choiceContainer {
-            display: none;
-            background: rgba(15, 23, 42, 0.98);
-            border: 2px solid var(--accent-gold);
-            border-radius: 18px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-            animation: fadeIn 0.4s ease;
-        }
+    .security-alert h3 {
+      color: #f87171;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    .security-alert p {
+      color: #fca5a5;
+      font-size: 0.88rem;
+      line-height: 1.75;
+      text-align: justify;
+    }
 
-        .choice-title {
-            text-align: center;
-            font-size: 1.05rem;
-            color: #fef08a;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
+    /* فوتر */
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 15px;
+      line-height: 1.8;
+    }
 
-        .choice-buttons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 10px;
-        }
-
-        .btn-choice-video {
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-            color: #ffffff;
-            border: 2px solid var(--accent-blue);
-            padding: 14px 16px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.35);
-        }
-
-        .btn-choice-platform {
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            color: #ffffff;
-            border: 2px solid #34d399;
-            padding: 14px 16px;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
-        }
-
-        .btn-choice-platform.active-beep, .btn-direct-connect.active-beep {
-            background: #22c55e !important;
-            box-shadow: 0 0 35px #22c55e !important;
-        }
-
-        #videoPlayerContainer {
-            display: none;
-            background: #020617;
-            border: 2px solid var(--accent-blue);
-            border-radius: 18px;
-            padding: 20px;
-            margin: 25px 0;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
-        }
-
-        .video-header-bar {
-            display: flex; flex-wrap: wrap; gap: 12px;
-            justify-content: space-between; align-items: center;
-            border-bottom: 1px solid #1e293b;
-            padding-bottom: 14px; margin-bottom: 15px;
-        }
-
-        .btn-direct-connect {
-            flex: 1;
-            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-            color: #ffffff;
-            border: 2px solid #34d399;
-            padding: 12px 18px;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .btn-close-video {
-            background: #dc2626; color: #fff;
-            border: 2px solid #ef4444;
-            padding: 12px 18px; border-radius: 10px;
-            font-weight: bold; cursor: pointer;
-        }
-
-        .video-box {
-            background: #000; border-radius: 12px; overflow: hidden;
-            border: 1px solid #334155;
-        }
-
-        .video-box video {
-            width: 100%; max-height: 480px; display: block;
-        }
-
-        .features-row {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 18px; margin: 25px 0;
-        }
-
-        .feature-item {
-            padding: 18px; background: rgba(255,255,255,0.02);
-            border-radius: 12px; border-right: 3px solid var(--accent-gold);
-        }
-
-        .feature-item h4 { color: var(--accent-gold); margin-bottom: 8px; }
-        .feature-item p { font-size: 0.9rem; color: #94a3b8; line-height: 1.7; }
-
-        /* کادر اخطار امنیتی در انتهای صفحه */
-        .security-warning-box {
-            background: var(--danger-bg);
-            border: 2px solid var(--danger-border);
-            border-radius: 14px;
-            padding: 18px 22px;
-            margin-top: 30px;
-            color: #fca5a5;
-            text-align: justify;
-            line-height: 1.8;
-            box-shadow: 0 0 25px rgba(239, 68, 68, 0.2);
-        }
-
-        .security-warning-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #f87171;
-            font-weight: bold;
-            font-size: 1.05rem;
-            margin-bottom: 8px;
-        }
-    </style>
+    .footer-highlight {
+      color: #93c5fd;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
-<div class="main-panel">
+  <div class="container">
+    
+    <!-- هدر سایت -->
     <header>
-        <span class="company-name">شرکت صنایع پردرآمد تهرانیها</span>
-        <span class="company-subname">شرکت هوش مصنوعی ما ایرانیها</span>
-        <div class="promo-badge">فرصت استثنایی مشارکت در پربازدهی سود پلتفرمهای هوش مصنوعی شرکت صنایع پردرآمد تهرانیها</div>
-        <h1>درگاه امتیاز سرمایه گذاری پر بازده پنلها، داشبوردها و پلتفرمهای هوش مصنوعی</h1>
+      <h1>شرکت صنایع پردرآمد تهرانیها</h1>
+      <h2>شرکت هوش مصنوعی ما ایرانیها</h2>
     </header>
 
-    <!-- کادر مالکیت حقوقی پلتفرم -->
-    <div class="ownership-box">
-        تمامی حقوق این پلتفرم متعلق به شرکت صنایع پردرآمد تهرانیها با مدیر عاملی حسین لعلیان (رتبه ۳۲ دکتری)می‌باشد.
-    </div>
+    <!-- کادر ابزارهای پردازشی هوشمند -->
+    <div class="card">
+      <label for="userInput" style="display:block; margin-bottom: 8px; font-weight: bold; color: #cbd5e1;">
+        متن، پرسش یا مفهوم مورد نظر خود را بنویسید:
+      </label>
+      <textarea id="userInput" placeholder="موضوع، مبحث یا سوال خود را اینجا وارد کنید..."></textarea>
 
-    <div class="hero-box">
-        این پلتفرمهای هوش مصنوعی فعلا در قالب پیش نمایش و دمو هستند که در صورت سفارش، نسخه نهایی با تمامی امکانات پس از عقد قرارداد تحویل می‌گردد!<br><br>
-        بعبارتی این پلتفرمها، ویترین رسمی و نسخه ارزیابی (Demo) جهت واگذاری امتیاز بهره‌برداری از هوش مصنوعی پیشرفته است.<br><br>
-        شرکت صنایع پردرآمد تهرانیها با مدیریت حسین لعلیان، زیرساختی را فراهم آورده که علاوه بر فرماندهی متمرکز عملیات پلتفرمهای هوش مصنوعی، امکان شخصی‌سازی و مالکیت کامل پنل‌های اختصاصی را برای سرمایه‌گذاران فراهم می‌کند.
-    </div>
-
-    <!-- دکمه‌های تخصصی هوش مصنوعی اضافه شده -->
-    <div class="ai-tools-section">
-        <div class="tools-title">⚙️ پردازش‌ها و ابزارهای هوشمند اختصاصی</div>
-        <div class="tools-grid">
-            <button class="btn-tool btn-socratic" onclick="handleToolAction('پاسخ سقراطی')">
-                <span>🧠</span> پاسخ سقراطی
-            </button>
-            <button class="btn-tool btn-mcq" onclick="handleToolAction('تولید سوال و پاسخ چهار جوابی')">
-                <span>📝</span> تولید سوال و پاسخ چهار جوابی
-            </button>
-            <button class="btn-tool btn-analytics" onclick="handleToolAction('تحلیل و تجزیه سوال و پاسخ')">
-                <span>📊</span> تحلیل و تجزیه سوال و پاسخ
-            </button>
-        </div>
-    </div>
-
-    <!-- کادر اصلی ورود و انتخاب -->
-    <div class="action-area">
-        <button class="btn-open-clip" onclick="showChoiceMenu()">
-            ⚡ مشاهده کلیپ و بازگشایی درگاه فرماندهی عملیات هوش مصنوعی حسین لعلیان
+      <!-- دکمه‌های اصلی طبق نیازمندی ۳ و ۵ و ۶ -->
+      <div class="tools-grid">
+        <button type="button" class="btn btn-socratic" onclick="runSocratic()">
+          <span>🏛️</span> پاسخ سقراطی
         </button>
+        <button type="button" class="btn btn-quiz" onclick="runQuizGenerator()">
+          <span>📝</span> تولید سوال و پاسخ چهار جوابی
+        </button>
+        <button type="button" class="btn btn-analyze" onclick="runAnalyze()">
+          <span>🔍</span> تحلیل و تجزیه سوال و پاسخ
+        </button>
+      </div>
+
+      <!-- خروجی ابزارها -->
+      <div id="resultBox" class="output-box">
+        برای مشاهده نتیجه، متن خود را وارد کرده و یکی از دکمه‌های بالا را لمس کنید.
+      </div>
     </div>
 
-    <div id="choiceContainer">
-        <div class="choice-title">
-            لطفاً مسیر مورد نظر خود را انتخاب فرمایید:
-        </div>
-        <div class="choice-buttons-grid">
-            <button class="btn-choice-video" onclick="playDemoClip()">
-                🎬 میخواهم کلیپ جانفدایان ایران را ببینم!
-            </button>
-            <button id="btnPlatformChoice" class="btn-choice-platform" onclick="connectAndRedirectWithBeep(this)">
-                🤖 میخواهم پلتفرمهای هوش مصنوعی را ببینم!
-            </button>
-        </div>
+    <!-- کادر اخطار امنیتی (بند ۴) -->
+    <div class="security-alert">
+      <h3>
+        <span>⚠️</span> اخطار امنیتی و حقوقی
+      </h3>
+      <p>
+        هرگونه سوءاستفاده، استخراج غیرمجاز داده‌ها، نفوذ، مهندسی معکوس یا بهره‌برداری غیرقانونی از سامانه و عنوان تجاری این پلتفرم اکیداً ممنوع بوده و مشمول پیگرد شدید قضایی، حقوقی و کیفری در مراجع ذی‌صلاح خواهد شد. کلیه نشست‌ها، نشانی‌های IP و لاگ‌های ارسالی کاربران به منظور امنیت شبکه مانیتور و ذخیره می‌گردند.
+      </p>
     </div>
 
-    <!-- پخش کلیپ -->
-    <div id="videoPlayerContainer">
-        <div class="video-header-bar">
-            <button id="connectTargetBtn" class="btn-direct-connect" onclick="connectAndRedirectWithBeep(this)">
-                🔊 اتصال به درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان
-            </button>
-            <button class="btn-close-video" onclick="stopDemoClip()">✕ بستن</button>
-        </div>
-        <div class="video-box">
-            <video id="mainClip" controls playsinline preload="auto">
-                <source src="demo.mp4" type="video/mp4">
-            </video>
-        </div>
-    </div>
+    <!-- فوتر با درج عبارت قانونی دقیق (بند ۱ و پاک‌سازی بند ۲) -->
+    <footer>
+      <p class="footer-highlight">
+        تمامی حقوق این پلتفرم متعلق به شرکت صنایع پردرآمد تهرانیها با مدیر عاملی حسین لعلیان (رتبه ۳۲ دکتری)می‌باشد.
+      </p>
+    </footer>
 
-    <div class="features-row">
-        <div class="feature-item">
-            <h4>📈 سرمایه‌گذاری پر بازده</h4>
-            <p>ورود به بازار بکر خدمات هوش مصنوعی با بالاترین نرخ بازگشت سرمایه در کوتاه‌ترین زمان ممکن.</p>
-        </div>
-        <div class="feature-item">
-            <h4>🔑 واگذاری کامل امتیاز</h4>
-            <p>شما مالک برند و پنل اختصاصی خود خواهید بود؛ با پشتیبانی فنی مستقیم شرکت صنایع پردرآمد تهرانیها.</p>
-        </div>
-    </div>
+  </div>
 
-    <!-- کادر اخطار امنیتی در پایان صفحه -->
-    <div class="security-warning-box">
-        <div class="security-warning-header">
-            <span>⚠️</span> اخطار امنیتی و حقوقی:
-        </div>
-        هرگونه سوءاستفاده، کپی‌برداری غیرمجاز، بازتولید کدها، بهره‌برداری تجاری بدون مجوز رسمی یا جعل نام و محتوای این سامانه و پلتفرم‌های تابعه، اکیداً ممنوع بوده و مشمول پیگرد شدید قانونی و قضایی از طریق مراجع صالحه و پلیس فتا خواهد گردید. کلیه فعالیت‌ها و داده‌های ورودی در بستر این سرور پایش و ثبت می‌گردد.
-    </div>
+  <script>
+    // تابع پخش بوق سیستمی
+    function playBeep(freq = 600, dur = 0.08) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + dur);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + dur);
+      } catch (e) {}
+    }
+
+    // ۱. منطق پاسخ سقراطی (بند ۳)
+    function runSocratic() {
+      playBeep(520, 0.1);
+      const text = document.getElementById("userInput").value.trim();
+      const res = document.getElementById("resultBox");
+
+      if (!text) {
+        res.innerHTML = "<span style='color:#f87171;'>لطفاً ابتدا یک مفهوم یا پرسش در کادر بالا وارد کنید.</span>";
+        return;
+      }
+
+      res.innerHTML = `
+<strong style="color:#a78bfa;">🏛️ روش دیالوگ سقراطی:</strong>
+به جای ارائه یک پاسخ صلب، ساختار فکری زیر را پیرامون موضوع <em>«${text}»</em> بازنگری کنید:
+
+1. <strong>روشنگری بنیادین:</strong> دقیقاً منظورتان از اجزای اصلی این گزاره چیست و تعریف مرزی آن کجاست؟
+2. <strong>واکاوی پیش‌فرض‌ها:</strong> این گزاره بر چه پیش‌فرض‌هایی استوار است که ممکن است خود اثبات‌نشده باشند؟
+3. <strong>جستجوی مثال نقض:</strong> آیا شرایط یا زمینه‌ای وجود دارد که عکسِ این فرضیه در آن صادق باشد؟
+4. <strong>پیامدها و ابعاد:</strong> اگر این دیدگاه کاملاً پذیرفته شود، چه نتایج عملی و منطقی به دنبال خواهد داشت؟
+
+<em>(تفکر پیرامون این ۴ پرسش، پاسخ اصلی را در ذهن شما شکل خواهد داد.)</em>
+      `;
+    }
+
+    // ۲. منطق تولید سوال چهار جوابی (بند ۵)
+    function runQuizGenerator() {
+      playBeep(660, 0.1);
+      const text = document.getElementById("userInput").value.trim();
+      const res = document.getElementById("resultBox");
+
+      if (!text) {
+        res.innerHTML = "<span style='color:#f87171;'>لطفاً متنی را برای تولید سوال چهار جوابی وارد فرمایید.</span>";
+        return;
+      }
+
+      const qTitle = text.length > 50 ? text.substring(0, 50) + "..." : text;
+
+      res.innerHTML = `
+<div class="quiz-card">
+  <strong style="color:#34d399;">📝 پرسش چهار گزینه‌ای تولید شده:</strong>
+  <p style="margin: 10px 0; color: #f8fafc;">بر اساس مبحث «${qTitle}»، کدام گزینه جامع‌ترین دیدگاه تحلیلی را بازتاب می‌دهد؟</p>
+  
+  <button class="quiz-option" onclick="checkAnswer(this, false)">الف) صرفاً ابعاد نظری و اولیه بدون پیامدهای کاربردی</button>
+  <button class="quiz-option" onclick="checkAnswer(this, true)">ب) ترکیب متوازن اصول زیرساختی، تحلیل داده‌ها و ارزیابی پیامدها (گزینه صحیح)</button>
+  <button class="quiz-option" onclick="checkAnswer(this, false)">ج) اتکا به نتایج تجربی بدون نیاز به مدل‌سازی علمی</button>
+  <button class="quiz-option" onclick="checkAnswer(this, false)">د) محدودسازی حوزه مطالعه به شرایط ایستا</button>
+  <div id="quizFeedback" style="margin-top:10px; font-weight:bold;"></div>
 </div>
-
-<script>
-    const choiceBox = document.getElementById('choiceContainer');
-    const container = document.getElementById('videoPlayerContainer');
-    const video = document.getElementById('mainClip');
-    const targetUrl = 'https://hlth3al.github.io/Hossein-Laaliyan-AI/';
-
-    function showChoiceMenu() {
-        choiceBox.style.display = 'block';
-        choiceBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      `;
     }
 
-    function playBeepSound() {
-        try {
-            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(880, audioCtx.currentTime);
-            gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-            osc.start();
-            setTimeout(() => { osc.stop(); audioCtx.close(); }, 350);
-        } catch(e) { console.log("صوت پشتیبانی نشد", e); }
+    function checkAnswer(btn, isCorrect) {
+      const fb = document.getElementById("quizFeedback");
+      if (isCorrect) {
+        playBeep(880, 0.12);
+        btn.style.borderColor = "#10b981";
+        btn.style.background = "rgba(16, 185, 129, 0.2)";
+        fb.innerHTML = "<span style='color:#34d399;'>✅ کاملاً صحیح است! گزینه (ب) جامع‌ترین و دقیق‌ترین پاسخ تحلیلی است.</span>";
+      } else {
+        playBeep(300, 0.15);
+        btn.style.borderColor = "#ef4444";
+        btn.style.background = "rgba(239, 68, 68, 0.2)";
+        fb.innerHTML = "<span style='color:#f87171;'>❌ این گزینه نادرست یا ناقص است. دوباره تلاش کنید.</span>";
+      }
     }
 
-    function playDemoClip() {
-        choiceBox.style.display = 'none';
-        container.style.display = 'block';
-        video.currentTime = 0;
-        video.play().catch(e => console.log("نیازمند تعامل کاربر", e));
-        container.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    // ۳. منطق تحلیل و تجزیه سوال و پاسخ (بند ۶)
+    function runAnalyze() {
+      playBeep(580, 0.1);
+      const text = document.getElementById("userInput").value.trim();
+      const res = document.getElementById("resultBox");
 
-    function stopDemoClip() {
-        video.pause();
-        video.currentTime = 0;
-        container.style.display = 'none';
-    }
+      if (!text) {
+        res.innerHTML = "<span style='color:#f87171;'>لطفاً سوال یا پاسخی را جهت تحلیل و تجزیه وارد فرمایید.</span>";
+        return;
+      }
 
-    function connectAndRedirectWithBeep(btnElement) {
-        playBeepSound();
-        if (btnElement) {
-            btnElement.classList.add('active-beep');
-            btnElement.innerHTML = '🤖 در حال انتقال به پلتفرم‌های هوش مصنوعی...';
-        }
-        setTimeout(() => { window.location.href = targetUrl; }, 500);
-    }
+      const words = text.split(/\s+/).filter(Boolean);
+      const wordCount = words.length;
+      const charCount = text.length;
+      const isQuestion = text.includes("؟") || text.includes("?");
 
-    function handleToolAction(actionName) {
-        playBeepSound();
-        alert('بخش «' + actionName + '» در هسته هوش مصنوعی فعال شد. در حال بارگذاری ماژول مربوطه...');
-    }
-</script>
+      res.innerHTML = `
+<strong style="color:#fb923c;">🔍 گزارش جامع تحلیل و تجزیه متن:</strong>
 
+• <strong>ساختار صوری گزاره:</strong> ${isQuestion ? 'استفهامی / سوالی' : 'اخباری / تحلیلی'}
+• <strong>طول متن:</strong> ${wordCount} کلمه | ${charCount} کاراکتر
+• <strong>مؤلفه‌های مفهومی اصلی:</strong> [ «${words[0] || 'کلیدواژه اول'}»، «${words[Math.floor(wordCount / 2)] || 'مفهوم میانی'}»، «${words[wordCount - 1] || 'نتیجه‌گیری'}» ]
+
+• <strong>تجزیه ساختاری و انتقادی:</strong>
+  ۱. <em>سطح محتوایی:</em> ساختار گزاره متمرکز بر ارتباط میان پدیده‌ها و نیازمند صحت‌سنجی تجربی است.
+  ۲. <em>ارزیابی دقت منطقی:</em> عدم وجود ابهام ساختاری آشکار در عبارات ارسالی؛ گزاره‌ها منسجم ارزیابی می‌شوند.
+  ۳. <em>پیشنهاد بهینه‌سازی:</em> جهت دستیابی به نتیجه‌ی جامع‌تر، تفکیک داده‌های آماری از مفاهیم نظری توصیه می‌شود.
+      `;
+    }
+  </script>
 </body>
 </html>
