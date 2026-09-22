@@ -7,15 +7,9 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         :root {
-            --bg-dark: #070b14;
-            --card-bg: #0f172a;
-            --card-border: #1e293b;
-            --accent-cyan: #38bdf8;
-            --accent-purple: #a855f7;
-            --accent-emerald: #34d399;
-            --accent-gold: #fbbf24;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-dark: #060913;
+            --card-bg: #0d1424;
+            --card-border: #22304a;
         }
 
         * {
@@ -27,294 +21,281 @@
 
         body {
             background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-image:
+                radial-gradient(circle at 15% 25%, rgba(34, 211, 238, 0.18), transparent 45%),
+                radial-gradient(circle at 85% 20%, rgba(232, 121, 249, 0.18), transparent 45%),
+                radial-gradient(circle at 55% 90%, rgba(52, 211, 153, 0.15), transparent 45%),
+                radial-gradient(circle at 5% 80%, rgba(251, 191, 36, 0.12), transparent 40%),
+                radial-gradient(circle at 95% 70%, rgba(56, 189, 248, 0.15), transparent 40%),
+                linear-gradient(135deg, #0f172a, #1e1b4b, #0f172a);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 400% 400%;
+            animation: gradientShift 14s ease infinite;
+            min-height: 100vh;
+            color: #e2e8f0;
             line-height: 1.9;
             padding: 25px 15px;
             direction: rtl;
             text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%, 0% 50%, 50% 50%, 0% 50%, 100% 50%, 0% 50%; }
+            50% { background-position: 100% 50%, 100% 50%, 50% 50%, 100% 50%, 0% 50%, 100% 50%; }
+            100% { background-position: 0% 50%, 0% 50%, 50% 50%, 0% 50%, 100% 50%, 0% 50%; }
+        }
+
+        /* ذرات نورانی شناور پس‌زمینه */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1px);
+            opacity: 0;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) scale(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
         }
 
         .container {
-            max-width: 760px;
+            max-width: 780px;
             margin: 0 auto;
-        }
-
-        /* آیکون و نماد مغز هوش مصنوعی با استایل مدرن و نئونی */
-        .ai-brain-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0 20px;
-        }
-
-        .brain-icon-wrapper {
             position: relative;
-            width: 105px;
-            height: 105px;
+            z-index: 2;
+        }
+
+        /* 🔥 آیکون مغز هوش مصنوعی شکیل با نورافشانی عظیم */
+        .brain-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 25px;
+            position: relative;
+        }
+
+        .brain-halo {
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: radial-gradient(circle,
+                rgba(56, 189, 248, 0.55) 0%,
+                rgba(168, 85, 247, 0.45) 35%,
+                rgba(34, 211, 238, 0.2) 60%,
+                transparent 75%);
+            filter: blur(35px);
+            animation: haloPulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes haloPulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.35); opacity: 1; }
+        }
+
+        .brain-stage {
+            position: relative;
+            width: 210px;
+            height: 210px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, rgba(168, 85, 247, 0.08) 65%, transparent 100%);
-            border-radius: 50%;
-            border: 2px solid rgba(56, 189, 248, 0.45);
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4), 0 0 45px rgba(168, 85, 247, 0.25);
-            animation: brainPulse 3s ease-in-out infinite;
         }
 
-        @keyframes brainPulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 20px rgba(56, 189, 248, 0.4), 0 0 40px rgba(168, 85, 247, 0.25);
-            }
-            50% {
-                transform: scale(1.06);
-                box-shadow: 0 0 35px rgba(56, 189, 248, 0.7), 0 0 65px rgba(168, 85, 247, 0.5);
-            }
+        .brain-core {
+            position: absolute;
+            width: 175px;
+            height: 175px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.3), rgba(124, 58, 237, 0.2) 50%, rgba(15, 23, 42, 0.6));
+            filter: blur(8px);
+            animation: coreSpin 12s linear infinite;
+            box-shadow:
+                inset 0 0 30px rgba(56, 189, 248, 0.7),
+                0 0 40px rgba(168, 85, 247, 0.6),
+                0 0 90px rgba(56, 189, 248, 0.55);
+        }
+
+        @keyframes coreSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
         }
 
         .brain-svg {
-            width: 62px;
-            height: 62px;
-            filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.8));
+            width: 205px;
+            height: 205px;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.95)) drop-shadow(0 0 70px rgba(168, 85, 247, 0.75));
         }
 
-        .header-emojis {
-            font-size: 2rem;
-            margin-bottom: 6px;
-            display: block;
+        @keyframes brainFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        h1 {
-            color: var(--accent-cyan);
-            font-size: 1.45rem;
-            font-weight: 800;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        /* کارت معرفی شرکت و مدیریت */
-        .info-card {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 18px;
-            margin-bottom: 24px;
-            line-height: 1.85;
-            font-size: 1.05rem;
-        }
-
-        .info-card strong {
-            color: #fff;
-            font-size: 1.15rem;
-        }
-
-        .email-text {
-            direction: ltr;
-            display: inline-block;
-            color: #38bdf8;
-            font-family: monospace, Tahoma;
-            font-size: 1rem;
-            margin-top: 4px;
-        }
-
-        /* شعار ملی */
-        .slogan-box {
-            background: linear-gradient(135deg, rgba(52, 211, 153, 0.12), rgba(6, 78, 59, 0.25));
-            border: 2px dashed var(--accent-emerald);
-            border-radius: 14px;
-            padding: 20px 22px;
-            margin: 25px 0 30px;
-            color: #f1f5f9;
-            font-size: 1.08rem;
-            font-weight: 600;
-            line-height: 1.9;
-            box-shadow: 0 4px 20px rgba(52, 211, 153, 0.12);
-        }
-
-        /* دکمه درخشان هوش مصنوعی */
-        .btn-glow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-            color: #ffffff;
-            font-size: 1.25rem;
-            font-weight: 800;
-            text-decoration: none;
-            border-radius: 14px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 25px rgba(59, 130, 246, 0.5), 0 0 45px rgba(124, 58, 237, 0.35);
-            animation: buttonGlow 2.5s infinite alternate;
-            transition: all 0.3s ease;
-            margin: 25px 0;
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 0 35px rgba(56, 189, 248, 0.8), 0 0 60px rgba(168, 85, 247, 0.6);
-            background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
-        }
-
-        @keyframes buttonGlow {
-            0% {
-                box-shadow: 0 0 15px rgba(37, 99, 235, 0.4), 0 0 30px rgba(124, 58, 237, 0.3);
-            }
-            100% {
-                box-shadow: 0 0 30px rgba(56, 189, 248, 0.8), 0 0 55px rgba(168, 85, 247, 0.6);
-            }
-        }
-
-        /* توضیحات پیش‌نمایش و دمو */
+        /* توضیحات پیش‌نمایش */
         .demo-notice {
             color: #cbd5e1;
             font-size: 1rem;
             line-height: 1.8;
-            margin: 25px 0;
+            margin: 20px 0;
             padding: 12px;
             background: rgba(15, 23, 42, 0.5);
             border-radius: 10px;
         }
 
-        /* بخش ویژگی‌ها و مشخصات */
-        .features-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 24px;
-            margin: 25px 0;
-            text-align: right;
-        }
-
-        .feature-item {
-            margin-bottom: 20px;
-        }
-
-        .feature-item:last-child {
-            margin-bottom: 0;
-        }
-
+        /* کارت ویژه گی‌ها */
         .feature-item h3 {
-            color: var(--accent-gold);
-            font-size: 1.15rem;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .feature-item p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-
-        /* اخطار حق نشر و پاورقی */
-        .footer-box {
-            background: rgba(15, 23, 42, 0.8);
-            border-top: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.9;
-        }
-
-        .copyright-warning {
-            color: #fecdd3;
-            margin-bottom: 12px;
+            color: #38bdf8;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+    <!-- ذرات نورانی پس‌زمینه -->
+    <div class="particles" id="particles"></div>
 
-    <!-- نماد مغز هوش مصنوعی با افکت نئونی -->
-    <div class="ai-brain-container">
-        <div class="brain-icon-wrapper">
-            <svg class="brain-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- نیم‌کره راست و چپ مغز شبکه عصبی -->
-                <path d="M32 10C24 10 16 16 16 26C16 32 19 37 23 40C22 45 25 52 32 54" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M32 10C40 10 48 16 48 26C48 32 45 37 41 40C42 45 39 52 32 54" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- خط ارتباطی میانجی -->
-                <line x1="32" y1="12" x2="32" y2="52" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3 3"/>
-                <!-- گره‌ها و اتصالات سیناپسی -->
-                <circle cx="24" cy="22" r="3" fill="#38bdf8"/>
-                <circle cx="40" cy="22" r="3" fill="#a855f7"/>
-                <circle cx="20" cy="34" r="2.5" fill="#38bdf8"/>
-                <circle cx="44" cy="34" r="2.5" fill="#a855f7"/>
-                <circle cx="28" cy="45" r="2.5" fill="#38bdf8"/>
-                <circle cx="36" cy="45" r="2.5" fill="#a855f7"/>
-                <line x1="24" y1="22" x2="32" y2="30" stroke="#38bdf8" stroke-width="1.5"/>
-                <line x1="40" y1="22" x2="32" y2="30" stroke="#a855f7" stroke-width="1.5"/>
-                <line x1="20" y1="34" x2="28" y2="45" stroke="#38bdf8" stroke-width="1.5"/>
-                <line x1="44" y1="34" x2="36" y2="45" stroke="#a855f7" stroke-width="1.5"/>
-                <circle cx="32" cy="30" r="3.5" fill="#fbbf24"/>
-            </svg>
-        </div>
-    </div>
+    <div class="container">
 
-    <!-- ایموجی‌ها و تیتر اصلی -->
-    <div class="header-emojis">🌐🏛️</div>
-    <h1>درگاه واگذاری امتیاز سرمایه گذاری پر بازده پنلها،داشیوردها و پلتفرمهای هوش مصنوعی</h1>
-
-    <!-- مشخصات شرکت و مدیریت -->
-    <div class="info-card">
-        <strong>شرکت صنایع پردرآمد تهرانیها</strong><br>
-        شرکت هوش مصنوعی ما ایرانیها<br>
-        با مدیر عاملی حسین لعلیان(رتبه ۳۲ کنکور دکتری)<br>
-        <span class="email-text">AI.Algorithms.Ballistics@gmail.com</span>
-    </div>
-
-    <!-- شعار ملی -->
-    <div class="slogan-box">
-        واژه “پردرآمد” در نام این مجموعه، تجلی یک آرمان ملی است: توانمندسازی و ثروت‌آفرینی پایدار برای ما ایرانی‌ها با بهره‌گیری از هوش مصنوعی بومی.
-    </div>
-
-    <!-- دکمه ورود به پلتفرم‌های هوش مصنوعی با نورافشانی -->
-    <a href="https://hlth3al.github.io/Hossein-Laaliyan-AI/" class="btn-glow" target="_blank">
-        <span>🤖</span>
-        <span>میخواهم پلتفرمهای هوش مصنوعی را ببینم!</span>
-    </a>
-
-    <!-- توضیحات دمو -->
-    <div class="demo-notice">
-        این پلتفرم‌های هوش مصنوعی فعلاً در قالب پیش‌نمایش و دمو هستند و نسخه نهایی و عملیاتی، پس از واگذاری امتیاز و سرمایه‌گذاری راه‌اندازی و تقدیم خواهد شد.
-    </div>
-
-    <!-- کارت ویژگی‌ها -->
-    <div class="features-card">
-        <div class="feature-item">
-            <h3>📈 سرمایه‌گذاری پر بازده</h3>
-            <p>ورود به بازار بکر خدمات هوش مصنوعی با بالاترین نرخ بازگشت سرمایه در کوتاه‌ترین زمان ممکن و ارزش‌افزوده تضمینی.</p>
+        <!-- 🔥 آیکون مغز هوش مصنوعی نورانی و شکیل -->
+        <div class="brain-container">
+            <div class="brain-halo"></div>
+            <div class="brain-stage">
+                <div class="brain-core"></div>
+                <svg class="brain-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: brainFloat 4s ease-in-out infinite;">
+                    <!-- نیم کره راست -->
+                    <path d="M60 18C46 18 36 28 36 44C36 56 44 65 52 68C50 73 54 80 60 82V82C66 80 70 73 68 68C76 65 84 56 84 44C84 28 74 18 60 18Z" fill="url(#gradBrain)" stroke="#38bdf8" stroke-width="2.5" filter="url(#glowBrain)"/>
+                    <!-- خط میانی -->
+                    <line x1="60" y1="18" x2="60" y2="82" stroke="#22d3ee" stroke-width="2" stroke-dasharray="4 4" opacity="0.8"/>
+                    <!-- چین های مغز -->
+                    <path d="M45 35 Q60 45 75 35" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.9"/>
+                    <path d="M48 48 Q60 55 72 48" stroke="#a78bfa" stroke-width="2" fill="none" opacity="0.9"/>
+                    <path d="M48 60 Q60 68 72 60" stroke="#60a5fa" stroke-width="2" fill="none" opacity="0.9"/>
+                    <!-- نقاط عصبی نورانی -->
+                    <circle cx="45" cy="35" r="3.5" fill="#facc15" filter="url(#glowDot)"/>
+                    <circle cx="75" cy="35" r="3.5" fill="#f472b6" filter="url(#glowDot)"/>
+                    <circle cx="48" cy="48" r="3" fill="#34d399" filter="url(#glowDot)"/>
+                    <circle cx="72" cy="48" r="3" fill="#f472b6" filter="url(#glowDot)"/>
+                    <circle cx="60" cy="70" r="4" fill="#22d3ee" filter="url(#glowDot)"/>
+                    <!-- تعریف گرادیان و فیلترها -->
+                    <defs>
+                        <linearGradient id="gradBrain" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.2"/>
+                            <stop offset="100%" stop-color="#a855f7" stop-opacity="0.2"/>
+                        </linearGradient>
+                        <filter id="glowBrain" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        <filter id="glowDot" x="-100%" y="-100%" width="300%" height="300%">
+                            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                            <feMerge>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="blur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
         </div>
 
-        <div class="feature-item">
-            <h3>⚡ استقرار فوری و مقیاس‌پذیر</h3>
+        <h1>درگاه واگذاری امتیاز سرمایه گذاری پر بازده پنل‌ها، داشبوردها و پلتفرم‌های هوش مصنوعی</h1>
+
+        <!-- مشخصات شرکت -->
+        <div class="info-card" style="background:rgba(15,23,42,0.8);border:1px solid #22304a;border-radius:14px;padding:18px;line-height:1.9;margin:20px 0;">
+            <strong>شرکت صنایع پردرآمد تهرانی‌ها</strong><br>
+            شرکت هوش مصنوعی ما ایرانی‌ها<br>
+            با مدیریت حسین لعلیان (رتبه ۳۲ کنکور دکتری)<br>
+            <span style="color:#38bdf8;">AI.Algorithms.Ballistics@gmail.com</span>
         </div>
 
-        <div class="feature-item">
-            <h3>🛡️ امنیت و استقلال داده</h3>
-            <p>معماری مقاوم و حفظ کامل حریم اطلاعات ملی بدون وابستگی مستقیم به سرورهای خارجی در شرایط حساس.</p>
+        <!-- 🔥 دکمه نورافشان با صدای بوق -->
+        <button class="btn-glow" onclick="playAiBeep(this)">
+            <span class="btn-scan"></span>
+            <span class="btn-icon">🤖</span>
+            <span class="btn-text">می‌خواهم پلتفرم‌های هوش مصنوعی را ببینم!</span>
+        </button>
+
+        <!-- ویژگی‌ها -->
+        <div class="features-card" style="text-align:right;background:rgba(15,23,42,0.8);border:1px solid #22304</span>
         </div>
 
-        <div class="feature-item">
-            <h3>🎯 مأموریت و خدمت ملی</h3>
-            <p>بهره‌برداری توسط نخبگان، صنایع تولیدی، بانک‌ها و نهادهای راهبردی جهت تسریع تصمیم‌گیری‌های کلان.</p>
-        </div>
-    </div>
+        <!-- 🔥 دکمه نورافشان با صدای بوق -->
+        <button class="btn-glow" onclick="playAiBeep(this)">
+            <span class="btn-scan"></span>
+            <span class="btn-icon">🤖</span>
+            <span class="btn-text">می‌خواهم پلتفرم‌های هوش مصنوعی را ببینم!</span>
+        </button>
 
-    <!-- اخطار حق نشر و فوتر -->
-    <footer class="footer-box">
-        <p class="copyright-warning">⚠️ <strong>اخطار حق نشر و امنیت:</strong> کلیه حقوق مادی و معنوی، الگوریتم‌ها، کدهای منبع و ساختار پنلهای تخصصی تحت لایسنس انحصاری شرکت صنایع پردرآمد تهرانیها محفوظ است.</p>
-        <p>تمامی حقوق متعلق به درگاه پلتفرمهای هوش مصنوعی صنایع پردرآمد تهرانیها می‌باشد</p>
-    </footer>
+        <!-- ویژگی‌ها -->
+        <div class="features-card" style="text-align:right;background:rgba(15,23,42,0.8);border:1px solid #22304a;border-radius:14px;padding:<script>
+        /* 🔥 رنگ آمیزی ذرات پس زمینه */
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const colors = ['#38bdf8', '#a855f7', '#f472b6', '#34d399', '#facc15', '#22d3ee'];
+            for (let i = 0; i < 40; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'particle';
+                const size = Math.random() * 6 + 3;
+                dot.style.left = Math.random() * 100 + '%';
+                dot.style.width = size + 'px';
+                dot.style.height = size + 'px';
+                dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+                dot.style.animationDuration = (Math.random() * 8 + 6) + 's';
+                dot.style.animationDelay = (Math.random() * 5) + 's';
+                container.appendChild(dot);
+            }
+        }
 
-</div>
+        /* 🔥 پخش صدای بوق ملایم + نورافشانی دکمه */
+        function playAiBeep(btn) {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(880, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1460, ctx.currentTime + 0.12);
+                gain.gain.setValueAtTime(0.18, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.42);
+            } catch(e) {}
 
+            /* نورافشانی قوی هنگام کلیک */
+            btn.style.boxShadow = '0 0 50px rgba(56,189,248,0.9), 0 0 90px rgba(168,85,247,0.7)';
+            setTimeout(() => { btn.style.boxShadow = ''; }, 600);
+
+            /* باز کردن صفحه مقصد */
+            setTimeout(() => {
+                window.open('https://hlth3al.github.io/Hossein-Laaliyan-AI/', '_blank');
+            }, 400);
+        }
+
+        createParticles();
+    </script>
 </body>
 </html>
