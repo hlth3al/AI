@@ -3,327 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>درگاه امتیاز سرمایه‌گذاری پر بازده | صنایع پردرآمد تهرانیها</title>
+    <title>درگاه واگذاری امتیاز سرمایه گذاری</title>
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
-        :root {
-            --bg-dark: #070b14;
-            --card-bg: #0f172a;
-            --card-border: #1e293b;
-            --accent-cyan: #38bdf8;
-            --accent-emerald: #34d399;
-            --accent-gold: #fbbf24;
-            --accent-rose: #f43f5e;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-        }
+        :root { --bg-dark: #050505; --accent-blue: #38bdf8; --accent-gold: #fbbf24; }
+        body { background-color: var(--bg-dark); color: #e2e8f0; font-family: 'Vazirmatn', Tahoma, sans-serif; line-height: 1.6; padding: 20px; text-align: center; }
+        .container { max-width: 700px; margin: 0 auto; }
+        h1 { color: var(--accent-blue); font-size: 1.6rem; margin-bottom: 20px; }
+        .info-box { margin: 20px 0; padding: 15px; border-bottom: 1px solid #222; }
+        .slogan { background: rgba(56, 189, 248, 0.1); border-right: 4px solid var(--accent-blue); padding: 20px; margin: 30px 0; font-weight: bold; font-size: 1.1rem; }
+        
+        /* انیمیشن نورافشانی */
+        @keyframes glow { 0% { box-shadow: 0 0 5px #38bdf8; } 50% { box-shadow: 0 0 20px #38bdf8; } 100% { box-shadow: 0 0 5px #38bdf8; } }
+        .btn { display: block; width: 100%; padding: 15px; margin: 15px 0; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; color: white; text-decoration: none; animation: glow 2s infinite; }
+        .btn-clip { background: #e11d48; }
+        .btn-platform { background: #2563eb; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Vazirmatn', Tahoma, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.8;
-            padding: 15px;
-            direction: rtl;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        /* 1. بنر بالای صفحه */
-        .top-banner {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            border: 2px solid #38bdf8;
-            border-radius: 16px;
-            padding: 24px 18px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
-            margin-bottom: 24px;
-        }
-
-        .top-banner h1 {
-            font-size: 1.45rem;
-            color: #38bdf8;
-            margin-bottom: 8px;
-            font-weight: 800;
-        }
-
-        .top-banner .site-link {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            direction: ltr;
-            display: inline-block;
-            text-decoration: none;
-            border-bottom: 1px dashed #64748b;
-        }
-
-        /* 2. باکس درگاه جامع فرماندهی با ۲ دکمه */
-        .gateway-card {
-            background: linear-gradient(135deg, #111827 0%, #1e293b 100%);
-            border: 2px solid #6366f1;
-            border-radius: 16px;
-            padding: 22px;
-            margin-bottom: 24px;
-            text-align: center;
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
-        }
-
-        .gateway-card h2 {
-            font-size: 1.2rem;
-            color: #a5b4fc;
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .gateway-card p {
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            margin-bottom: 18px;
-        }
-
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            border: none;
-        }
-
-        .btn-clip {
-            background: linear-gradient(135deg, #e11d48, #be123c);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.35);
-        }
-
-        .btn-clip:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(225, 29, 72, 0.5);
-            background: #f43f5e;
-        }
-
-        .btn-platform {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
-        }
-
-        .btn-platform:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
-            background: #3b82f6;
-        }
-
-        /* 3. شعار ملی */
-        .slogan-box {
-            background: rgba(52, 211, 153, 0.08);
-            border: 2px dashed #34d399;
-            border-radius: 14px;
-            padding: 18px 20px;
-            margin: 24px 0;
-            text-align: center;
-            color: #e2e8f0;
-            font-size: 1.05rem;
-            font-weight: 600;
-            line-height: 1.8;
-            box-shadow: 0 4px 20px rgba(52, 211, 153, 0.1);
-        }
-
-        /* بخش پلیر ویدیو */
-        .video-container {
-            background: #000;
-            border: 2px solid #334155;
-            border-radius: 14px;
-            overflow: hidden;
-            margin: 24px 0;
-            display: block;
-        }
-
-        .video-header {
-            background: #0f172a;
-            padding: 10px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #334155;
-        }
-
-        .video-header span {
-            color: #38bdf8;
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        video {
-            width: 100%;
-            max-height: 480px;
-            background: #000;
-            display: block;
-        }
-
-        /* کارت‌ها و المان‌ها */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            color: var(--accent-gold);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin: 20px 0;
-        }
-
-        .feature-box {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 16px;
-        }
-
-        .feature-box h4 {
-            color: #38bdf8;
-            font-size: 1.05rem;
-            margin-bottom: 6px;
-        }
-
-        .feature-box p {
-            color: #cbd5e1;
-            font-size: 0.9rem;
-        }
-
-        .security-notice {
-            background: rgba(244, 63, 94, 0.1);
-            border: 1px solid #f43f5e;
-            border-radius: 12px;
-            padding: 16px;
-            color: #fecdd3;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-            color: #64748b;
-            font-size: 0.85rem;
-            border-top: 1px solid #1e293b;
-            margin-top: 30px;
-        }
+        #video-wrapper { display: none; margin: 20px 0; border: 2px solid #333; border-radius: 10px; overflow: hidden; }
+        video { width: 100%; display: block; }
+        .card { background: #111; padding: 20px; border-radius: 12px; margin-top: 20px; border: 1px solid #222; text-align: right; }
+        .footer-text { font-size: 0.8rem; color: #666; margin-top: 40px; }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <h1>🌐🏛️<br>درگاه واگذاری امتیاز سرمایه گذاری پر بازده پنلها،داشیوردها و پلتفرمهای هوش مصنوعی</h1>
 
-    <!-- ۱. عنوان اختصاصی بالای صفحه -->
-    <header class="top-banner">
-        <h1>🌐 درگاه امتیاز سرمایه گذاری پر بازده پنلها،داشیوردها و پلتفرمهای هوش مصنوعی</h1>
-        <a href="https://hlth3al.github.io/AI/" class="site-link">https://hlth3al.github.io/AI/</a>
-    </header>
-
-    <!-- ۲. اتصال به درگاه جامع فرماندهی با ۲ دکمه -->
-    <section class="gateway-card">
-        <h2>🏛️ درگاه جامع فرماندهی عملیات هوش مصنوعی در پنلها،پلتفرمها و داشبوردهای مدیریتی جامع هوش مصنوعی حسین لعلیان</h2>
-        <p>جهت مشاهده گزینه‌های پلتفرم و کلیپ جانفدایان، روی دکمه مورد نظر کلیک نمایید:</p>
-        <div class="btn-group">
-            <button class="btn btn-clip" onclick="openVideoPlayer()">🎬 میخوام کلیپ جانفدایان ایران را ببینم</button>
-            <a href="https://hlth3al.github.io/Hossein-Laaliyan-AI/" class="btn btn-platform" target="_blank">🤖 میخوام پلتفرمهای هوش مصنوعی را ببینم</a>
-        </div>
-    </section>
-
-    <!-- بخش پلیر کلیپ جانفدایان ایران -->
-    <section id="video-section" class="video-container">
-        <div class="video-header">
-            <span>🎬 کلیپ جانفدایان ایران و پیش‌نمایش پلتفرم</span>
-        </div>
-        <video id="mainVideo" controls>
-            <source src="InShot_20260918_231317356_480x854_168x298.mp4" type="video/mp4">
-            <source src="demo.mp4" type="video/mp4">
-            مرورگر شما از تگ ویدیو پشتیبانی نمی‌کند.
-        </video>
-    </section>
-
-    <!-- معرفی مجموعه -->
-    <div class="card">
-        <h3>شرکت صنایع پردرآمد تهرانیها | شرکت هوش مصنوعی ما ایرانیها</h3>
-        <p>این پلتفرم‌های هوش مصنوعی فعلاً در قالب پیش‌نمایش و دمو هستند و نسخه نهایی و عملیاتی پس از واگذاری امتیاز و سرمایه‌گذاری راه‌اندازی و تقدیم خواهد شد.</p>
+    <div class="info-box">
+        <p><strong>شرکت صنایع پردرآمد تهرانیها</strong><br>
+        شرکت هوش مصنوعی ما ایرانیها<br>
+        با مدیر عاملی حسین لعلیان(رتبه ۳۲ کنکور دکتری)<br>
+        AI.Algorithms.Ballistics@gmail.com</p>
     </div>
 
-    <!-- ۳. شعار ملی در وسط صفحه -->
-    <div class="slogan-box">
+    <div class="slogan">
         واژه “پردرآمد” در نام این مجموعه، تجلی یک آرمان ملی است: توانمندسازی و ثروت‌آفرینی پایدار برای ما ایرانی‌ها با بهره‌گیری از هوش مصنوعی بومی.
     </div>
 
-    <!-- ویژگی‌ها و مزایا -->
-    <div class="grid-2">
-        <div class="feature-box">
-            <h4>📈 سرمایه‌گذاری پر بازده</h4>
-            <p>ورود به بازار بکر خدمات هوش مصنوعی با بالاترین نرخ بازگشت سرمایه در کوتاه‌ترین زمان ممکن و ارزش‌افزوده تضمینی.</p>
-        </div>
-        <div class="feature-box">
-            <h4>⚡ استقرار فوری و مقیاس‌پذیر</h4>
-            <p>زیرساخت ابری و ماژولار با قابلیت توسعه و اتصال به انواع شبکه‌ها، پایگاه‌های داده و پردازنده‌های گرافیکی بومی.</p>
-        </div>
-        <div class="feature-box">
-            <h4>🛡️ امنیت و استقلال داده</h4>
-            <p>معماری مقاوم و حفظ کامل حریم اطلاعات ملی بدون وابستگی مستقیم به سرورهای خارجی در شرایط حساس.</p>
-        </div>
-        <div class="feature-box">
-            <h4>🎯 مأموریت و خدمت ملی</h4>
-            <p>بهره‌برداری توسط نخبگان، صنایع تولیدی، بانک‌ها و نهادهای راهبردی جهت تسریع تصمیم‌گیری‌های کلان.</p>
-        </div>
+    <button class="btn btn-clip" onclick="toggleVideo()">🎬 میخواهم کلیپ جانفدایان ایران را ببینم!</button>
+    <a href="https://hlth3al.github.io/Hossein-Laaliyan-AI/" class="btn btn-platform">🤖 میخواهم پلتفرمهای هوش مصنوعی را ببینم!</a>
+
+    <!-- ویدیو به صورت پنهان -->
+    <div id="video-wrapper">
+        <video controls id="mainVideo">
+            <source src="InShot_20260918_231317356_480x854_168x298.mp4" type="video/mp4">
+            <source src="demo.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <!-- اخطار حق نشر -->
-    <div class="security-notice">
-        ⚠️ <strong>اخطار حق نشر و امنیت:</strong> کلیه حقوق مادی و معنوی، الگوریتم‌ها، کدهای منبع و ساختار ۱۲ پنل تخصصی تحت لایسنس انحصاری آقای حسین لعلیان محفوظ است.
+    <p style="margin-top: 30px;">این پلتفرم‌های هوش مصنوعی فعلاً در قالب پیش‌نمایش و دمو هستند و نسخه نهایی و عملیاتی، پس از واگذاری امتیاز و سرمایه‌گذاری راه‌اندازی و تقدیم خواهد شد.</p>
+
+    <div class="card">
+        <h3>📈 سرمایه‌گذاری پر بازده</h3>
+        <p>ورود به بازار بکر خدمات هوش مصنوعی با بالاترین نرخ بازگشت سرمایه در کوتاه‌ترین زمان ممکن و ارزش‌افزوده تضمینی.</p>
+        
+        <h3>⚡ استقرار فوری و مقیاس‌پذیر</h3>
+        
+        <h3>🛡️ امنیت و استقلال داده</h3>
+        <p>معماری مقاوم و حفظ کامل حریم اطلاعات ملی بدون وابستگی مستقیم به سرورهای خارجی در شرایط حساس.</p>
+        
+        <h3>🎯 مأموریت و خدمت ملی</h3>
+        <p>بهره‌برداری توسط نخبگان، صنایع تولیدی، بانک‌ها و نهادهای راهبردی جهت تسریع تصمیم‌گیری‌های کلان.</p>
     </div>
 
-    <footer class="footer">
-        © ۱۴۰۵ تمامی حقوق متعلق به درگاه هوش مصنوعی و صنایع پردرآمد تهرانیها می‌باشد | مدیر عامل و طراح: حسین لعلیان (رتبه ۳۲ دکتری)
-    </footer>
-
+    <div class="footer-text">
+        <p>⚠️ اخطار حق نشر و امنیت: کلیه حقوق مادی و معنوی، الگوریتم‌ها، کدهای منبع و ساختار پنلهای تخصصی تحت لایسنس انحصاری شرکت صنایع پردرآمد تهرانیها محفوظ است.<br>
+        تمامی حقوق متعلق به درگاه پلتفرمهای هوش مصنوعی صنایع پردرآمد تهرانیها می‌باشد</p>
+    </div>
 </div>
 
 <script>
-    function openVideoPlayer() {
-        const vidSection = document.getElementById('video-section');
+    function toggleVideo() {
+        const wrapper = document.getElementById('video-wrapper');
         const video = document.getElementById('mainVideo');
-        vidSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        video.play().catch(e => {
-            console.log('پخش خودکار نیازمند تعامل است:', e);
-        });
+        if (wrapper.style.display === "block") {
+            wrapper.style.display = "none";
+            video.pause();
+        } else {
+            wrapper.style.display = "block";
+            video.play();
+        }
     }
 </script>
 
