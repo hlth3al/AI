@@ -34,18 +34,14 @@
       color: #00ffff;
       margin-bottom: 20px;
     }
-    .brain-box {
-      width: 250px;
-      height: 250px;
-      max-width: 90%;
+    .brain-img {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
       margin: 10px auto 25px auto;
       border-radius: 16px;
-      border: 3px solid #00d0ff;
-      background: radial-gradient(circle, #0a192f 0%, #000000 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 20px rgba(0, 208, 255, 0.4);
+      box-shadow: 0 0 25px rgba(0, 208, 255, 0.6);
+      display: block;
     }
     .btn-container {
       display: flex;
@@ -120,87 +116,15 @@
     <div class="top-icons">🌐🏛️</div>
     <div class="main-heading">درگاه واگذاری امتیاز سرمایه گذاری پر بازده پنلها، داشیوردها و پلتفرمهای هوش مصنوعی</div>
 
-    <!-- تصویر مغز هوش مصنوعی برداری درون‌کد -->
-    <div class="brain-box">
-      <svg viewBox="0 0 200 200" width="220" height="220">
-        <defs>
-          <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#ffffff"/>
-            <stop offset="60%" stop-color="#00ffff"/>
-            <stop offset="100%" stop-color="#0055ff"/>
-          </radialGradient>
-        </defs>
-        <!-- مسیرها و خطوط شبکه عصبی -->
-        <g stroke="#00ffff" stroke-width="2.5" opacity="0.85">
-          <!-- نیمکره راست -->
-          <line x1="100" y1="35" x2="135" y2="45"/>
-          <line x1="135" y1="45" x2="165" y2="75"/>
-          <line x1="165" y1="75" x2="170" y2="115"/>
-          <line x1="170" y1="115" x2="150" y2="155"/>
-          <line x1="150" y1="155" x2="115" y2="175"/>
-          <line x1="115" y1="175" x2="100" y2="175"/>
-          
-          <line x1="100" y1="35" x2="120" y2="80"/>
-          <line x1="120" y1="80" x2="150" y2="110"/>
-          <line x1="150" y1="110" x2="125" y2="145"/>
-          <line x1="135" y1="45" x2="120" y2="80"/>
-          <line x1="165" y1="75" x2="150" y2="110"/>
-          <line x1="170" y1="115" x2="125" y2="145"/>
-          <line x1="120" y1="80" x2="100" y2="110"/>
-          <line x1="125" y1="145" x2="100" y2="150"/>
-          <line x1="100" y1="110" x2="100" y2="150"/>
-
-          <!-- نیمکره چپ -->
-          <line x1="100" y1="35" x2="65" y2="45"/>
-          <line x1="65" y1="45" x2="35" y2="75"/>
-          <line x1="35" y1="75" x2="30" y2="115"/>
-          <line x1="30" y1="115" x2="50" y2="155"/>
-          <line x1="50" y1="155" x2="85" y2="175"/>
-          <line x1="85" y1="175" x2="100" y2="175"/>
-          
-          <line x1="100" y1="35" x2="80" y2="80"/>
-          <line x1="80" y1="80" x2="50" y2="110"/>
-          <line x1="50" y1="110" x2="75" y2="145"/>
-          <line x1="65" y1="45" x2="80" y2="80"/>
-          <line x1="35" y1="75" x2="50" y2="110"/>
-          <line x1="30" y1="115" x2="75" y2="145"/>
-          <line x1="80" y1="80" x2="100" y2="110"/>
-          <line x1="75" y1="145" x2="100" y2="150"/>
-        </g>
-        <!-- گره‌های شبکه عصبی هوش مصنوعی -->
-        <g fill="url(#nodeGlow)">
-          <circle cx="100" cy="35" r="7"/>
-          <circle cx="135" cy="45" r="6"/>
-          <circle cx="165" cy="75" r="6"/>
-          <circle cx="170" cy="115" r="6"/>
-          <circle cx="150" cy="155" r="6"/>
-          <circle cx="115" cy="175" r="6"/>
-          <circle cx="120" cy="80" r="5.5"/>
-          <circle cx="150" cy="110" r="5.5"/>
-          <circle cx="125" cy="145" r="5.5"/>
-          
-          <circle cx="65" cy="45" r="6"/>
-          <circle cx="35" cy="75" r="6"/>
-          <circle cx="30" cy="115" r="6"/>
-          <circle cx="50" cy="155" r="6"/>
-          <circle cx="85" cy="175" r="6"/>
-          <circle cx="80" cy="80" r="5.5"/>
-          <circle cx="50" cy="110" r="5.5"/>
-          <circle cx="75" cy="145" r="5.5"/>
-          
-          <circle cx="100" cy="110" r="7"/>
-          <circle cx="100" cy="150" r="6"/>
-          <circle cx="100" cy="175" r="5"/>
-        </g>
-      </svg>
-    </div>
+    <!-- عکس بزرگ مغز هوش مصنوعی نورافشان -->
+    <img src="ai_brain.png" alt="مغز هوش مصنوعی" class="brain-img">
 
     <div class="btn-container">
       <a href="demo.mp4" class="action-btn btn-red" onclick="softBeep()">
         🎬 میخواهم کلیپ جانفدایان ایران را ببینم!
       </a>
       <a href="https://hlth3al.github.io/Hossein-Laaliyan-AI/" target="_blank" class="action-btn btn-blue" onclick="softBeep()">
-        🧠 🤖 میخواهم پلتفرمهای هوش مصنوعی را ببینم!
+        🤖 میخواهم پلتفرمهای هوش مصنوعی را ببینم!
       </a>
     </div>
 
